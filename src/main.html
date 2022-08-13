@@ -1,52 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../Assets/CSS/main.css">
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../Assets/CSS/main.css" />
+    <link rel="stylesheet" href="../Assets/Icons/fontawesome/css/all.css" />
     <title>Clock</title>
 </head>
-<body >
+
+<body>
     <div class="ClockApp">
         <div class="TitleBar">
             <div class="IconandName">
-                <div id="title" class="title">
-                </div>
+                <div id="title" class="title"></div>
             </div>
             <div class="TitleBarButtons">
-                <button id="minimize-button" class="title-bar-button minimize-button"><img src="../Assets/Icons/title-bar-icons/subtract-1.png" alt=""></button>
-                <button id="maximize-button" class="title-bar-button maximize-button"><img class="max" src="../Assets/Icons/title-bar-icons/square-1.png" alt=""></button>
-                <button id="close-button"    class="title-bar-button close-button"><img src="../Assets/Icons/title-bar-icons/cross-1.png" alt=""></button>
+                <button id="minimize-button" class="title-bar-button minimize-button">
+                    <img src="../Assets/Icons/title-bar-icons/subtract-1.png" alt="" />
+                </button>
+                <button id="maximize-button" class="title-bar-button maximize-button">
+                    <img class="max" src="../Assets/Icons/title-bar-icons/square-1.png" alt="" />
+                </button>
+                <button id="close-button" class="title-bar-button close-button">
+                    <img src="../Assets/Icons/title-bar-icons/cross-1.png" alt="" />
+                </button>
             </div>
         </div>
         <div class="AppScreen">
             <div id="splash-screen" class="splash-screen hidden">
-                <div class="Name">
-                    Clock
-                </div>
-                <div class="author">
-                    by TonyCoder
-                </div>
-    
-    
+                <div class="Name">Clock</div>
+                <div class="author">by TonyCoder</div>
             </div>
 
             <div id="Clock" class="Clock">
-                <div class="DayNight">DateTime <i></i></div>
-                <div class="Time">00:00:00</div>
-                <div class="Today">12 Aug 22
-                    <div class="day">Friday</div>
+                <div id="digital-view" class="Clock Digital-Clock hidden">
+                    <div id="DayNight" class="DayNight">
+                    </div>
+                    <div id="time-screen" class="Time">00:00:00</div>
+                    <div class="Today">
+                        <div id="date"></div>
+                        <div class="slash"></div>
+                        <div id="day" class="day">Friday</div>
+                    </div>
+                    
                 </div>
+                <div id="analog-view" class="Clock Analog-Clock">
+                    
+
+
+                    
+                </div>
+                <!-- Changing Button Toggle -->
                 <div class="ChangeClock">
-                    <button>Digital</button>
-                    <button>Analog</button>
+                    <button id="Digital">Digital</button>
+                    <button id="Analog" class="invisible">Analog</button>
                 </div>
+
             </div>
-
         </div>
-
     </div>
     <script src="./JS/TitleBar.js"></script>
     <script src="./JS/Splash_Screen.js"></script>
-    
+    <script src="./JS/Clock.js"></script>
+    <script src="./JS/Analog.js"></script>
 </body>
+
 </html>

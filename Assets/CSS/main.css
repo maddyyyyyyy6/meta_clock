@@ -18,6 +18,10 @@
   font-family: Poppins_Light;
   src: url("../Fonts/Poppins-Light.ttf");
 }
+.invisible {
+  visibility: hidden;
+}
+
 .Clock {
   background-color: #2E2E2E;
   width: 100%;
@@ -26,10 +30,56 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: Poppins_Regular;
 }
 .Clock .DayNight {
   color: #FFFFFF;
   font-size: 50px;
+}
+.Clock .Time {
+  font-size: 110px;
+  color: #FFFFFF;
+}
+.Clock .Today {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: #FFFFFF;
+  margin-bottom: 140px;
+}
+.Clock .Today .slash {
+  width: 2px;
+  height: 45px;
+  background-color: #ffffff;
+  margin: 0 10px;
+}
+.Clock .ChangeClock {
+  border: 2px solid #fff;
+  border-radius: 25px;
+  width: 359px;
+  height: 46px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+  font-family: Poppins_Regular;
+  position: absolute;
+  bottom: 7%;
+}
+.Clock .ChangeClock button {
+  width: 50%;
+  height: 40px;
+  background-color: #4CABBF;
+  border: 1px solid #2C6D7B;
+  border-radius: 20px;
+  font-size: 25px;
+  font-family: Poppins_Regular;
+  text-align: center;
+  color: #2E2E2E;
+  padding-bottom: 10px;
 }
 
 .TitleBar {
