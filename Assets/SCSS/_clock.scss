@@ -1,0 +1,10 @@
+.Clock{
+    @include screen;
+    @include flexcenter(column);
+
+    & .DayNight{
+        color: $primary-font-color;
+        font-size: 50px;
+    }
+    
+}

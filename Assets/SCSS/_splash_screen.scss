@@ -1,0 +1,62 @@
+.splash-screen{
+    @include screen;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // animation: welcome;
+    // animation-timing-function: linear;
+    // animation-duration: 2s;
+    // animation-delay: 6s;
+    
+    & .Name{
+        font-size: 60px;
+        color: $primary-font-color;
+        margin-bottom: 0;
+        line-height: 60%;
+        animation: present;
+        animation-timing-function: linear;
+        animation-duration: 1s;
+        animation-delay: 0s;
+    }
+    & .author{
+        font-size: 15px;
+        color: $secondary-font-color;
+        animation: present;
+        animation-timing-function: linear;
+        animation-duration: 1s;
+        animation-delay: 0s;
+    }
+}
+
+
+@keyframes present {
+    0%{
+        opacity: 0;
+        transform: translateY(50px);
+    };
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    };
+    
+}
+
+@keyframes welcome {
+    0%{
+        opacity: 1;
+    };
+    100%{
+        opacity: 0;
+    };
+    
+}
+
+.welcome{
+    animation: welcome;
+    animation-timing-function: linear;
+    animation-duration: 2s;
+    animation-delay: 6s;
+
+}
+
