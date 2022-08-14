@@ -850,6 +850,90 @@
   transform: scale(-0.5px);
 }
 
+.Timer {
+  background-color: #2E2E2E;
+  width: 100%;
+  height: 100%;
+  padding-top: 10px;
+}
+.Timer .timer-box {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  width: 96%;
+  height: 267px;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: #3B3B3B;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.Timer .timer-box .label_controls {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+}
+.Timer .timer-box .label_controls .label {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.5);
+  padding-left: 20px;
+}
+.Timer .timer-box .circle {
+  width: 150px;
+  height: 150px;
+  border: 10px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+}
+.Timer .timer-box .timer-value {
+  font-size: 35px;
+  color: #fff;
+}
+.Timer .timer-box .timer-controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+.Timer .timer-box .timer-controls button {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0 5px;
+}
+.Timer .timer-box .timer-controls button img {
+  width: 18px;
+}
+.Timer .timer-box .timer-controls button:first-child {
+  background-color: #4CABBF;
+}
+.Timer .timer-box .timer-controls button:last-child {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid #fff;
+}
+.Timer .timer-box .timer-controls button:last-child i {
+  font-size: 20px;
+  color: #2E2E2E;
+  transform: rotateY(180deg);
+}
+
 html, body {
   margin: 0;
   padding: 0;
