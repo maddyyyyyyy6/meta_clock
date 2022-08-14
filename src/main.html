@@ -33,7 +33,7 @@
             </div>
 
             <div id="Clock" class="Clock">
-                <div id="digital-view" class="Clock Digital-Clock hidden">
+                <div id="digital-view" class="Digital-Clock">
                     <div id="DayNight" class="DayNight">
                     </div>
                     <div id="time-screen" class="Time">00:00:00</div>
@@ -44,10 +44,39 @@
                     </div>
                     
                 </div>
-                <div id="analog-view" class="Clock Analog-Clock">
+                <div id="analog-view" class="Analog-Clock hide">
+                    <div id="analog-DayNight" class="DayNight hide">
+                        Daytime <i class="far fa-sun"></i>
+                    </div>
+                    <div id="clock-circle" class="clock-circle flex hide">
+                        <span class="num12">12</span>
+                        <span class="num3">3</span>
+                        <span class="num6">6</span>
+                        <span class="num9">9</span>
+                        <span class="line num1"></span>
+                        <span class="line num2"></span>
+                        <span class="line num4"></span>
+                        <span class="line num5"></span>
+                        <span class="line num7"></span>
+                        <span class="line num8"></span>
+                        <span class="line num10"></span>
+                        <span class="line num11"></span>
+
+
+                        <div class="clock__hour" id="clock-hour"></div>
+                        <div class="clock__minutes" id="clock-minutes"></div>
+                        <div class="clock__seconds" id="clock-seconds"></div>
+
+
+                        <span class="dot"></span>
                     
-
-
+                    </div>        
+                    <div id="Analog-Today-view" class="Today flex hide">
+                        <div id="analog-date">12 Aug 22</div>
+                        <div class="slash"></div>
+                        <div id="analog-day" class="day">Friday</div>
+                    </div>
+                    
                     
                 </div>
                 <!-- Changing Button Toggle -->

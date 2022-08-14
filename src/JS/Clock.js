@@ -30,12 +30,14 @@ function refreshClock() {
     // var hour = date.getHours();
     // var minutes = date.getMinutes();
     // var seconds = date.getSeconds();
-    return time.substring(0,7);
+    var hour = datetime.getHours();
+    var lastindex = (hour < 10) ? 7:8;
+    return (lastindex === 7)? "0"+time.substring(0,lastindex):time.substring(0,lastindex);
 }
 
 
 function updateTime() {
-    Display_Time.innerHTML = '0' + refreshClock();
+    Display_Time.innerHTML = refreshClock();
 
 }
 setInterval(updateTime,1000);
@@ -56,19 +58,25 @@ getAMPM()
 
 function getAMPM() {
     var time = getToday().toLocaleTimeString();
-    console.log(time.substring(8,10))
-    getSpan(time.substring(8,10));
+    console.log(typeof time);
+    console.log(time.substring(time.length ,time.length -2));
+    var timelen = time.length;
+    var ampm = time.substring(timelen ,timelen -2);
+    
+    getSpan('AM');
 }
 
 function getSpan(AMPM) {
     var sunmoon = document.createElement('i');
     sunmoon.classList.add('far');
-
-    var logo = (AMPM === 'AM')? 'sun':'moon';
+    
+    
+    var logo = (AMPM == 'AM')? 'sun':'moon';
     sunmoon.classList.add('fa-' + logo);
-
+    
     var span = (AMPM === 'AM')? 'Daytime':'Nightime';
-
+    console.log(span)
+    
     DayNight.innerText = span;
     DayNight.appendChild(sunmoon);
 }
