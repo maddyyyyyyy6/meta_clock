@@ -5,6 +5,7 @@
 @import 'clock';
 @import 'titleBar';
 @import 'splash_screen';
+@import 'alarm';
 
 
 
@@ -12,6 +13,9 @@ html,body{
     margin: 0;
     padding: 0;
     font-family: Poppins_Regular;
+}
+::-webkit-scrollbar{
+    width: 0px;
 }
 
 .ClockApp{
