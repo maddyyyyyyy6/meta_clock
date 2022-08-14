@@ -22,6 +22,93 @@
   visibility: hidden;
 }
 
+.side-menu {
+  height: 100vh;
+  /* width: 300px; */
+  background-color: rgba(38, 38, 38, 0.7490196078);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  max-width: 300px;
+  border-right: 0.1px solid #707070;
+  width: 0px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  -webkit-backdrop-filter: blur(21px) saturate(2.5);
+          backdrop-filter: blur(21px) saturate(2.5);
+  transition: width 0.2s ease-in;
+}
+.side-menu ul {
+  width: 100%;
+  font-size: 15px;
+  color: #fff;
+  list-style: none;
+  margin-top: 25px;
+  padding-left: 0px;
+}
+.side-menu ul li {
+  margin: 5px 0;
+  border-radius: 5px;
+  padding: 8px 0;
+  padding-left: 29px;
+  cursor: pointer;
+}
+.side-menu ul li::before {
+  transition: all 0.5s;
+  content: "";
+  position: absolute;
+  transform-origin: center;
+  width: 5px;
+  height: 0px;
+  border-radius: 5px;
+  left: 3%;
+  background-color: #4CABBF;
+  transform: translateY(-50%);
+}
+.side-menu ul li:hover::before {
+  height: 20px;
+  transform: translateY(0%);
+}
+.side-menu ul li:hover {
+  background-color: rgba(255, 255, 255, 0.1019607843);
+}
+.side-menu > li {
+  width: 86%;
+  font-size: 20px;
+  color: #fff;
+  list-style: none;
+  padding-left: 33px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.side-menu > li::before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 0px;
+  border-radius: 5px;
+  left: 5%;
+  background-color: #4CABBF;
+}
+.side-menu > li:hover::before {
+  height: 30px;
+}
+.side-menu > li:hover {
+  background-color: rgba(255, 255, 255, 0.1019607843);
+}
+
+.show {
+  width: 300px;
+}
+
 .Clock {
   background-color: #2E2E2E;
   width: 100%;
@@ -294,6 +381,16 @@
   height: 30px;
   background-color: #2E2E2E;
   -webkit-app-region: drag;
+}
+.TitleBar .HamburgerMenu {
+  z-index: 2;
+  -webkit-app-region: none;
+  cursor: pointer;
+  color: #fff;
+  margin-left: 10px;
+}
+.TitleBar .HamburgerMenu i {
+  color: #fff;
 }
 .TitleBar .TitleBarButtons {
   display: flex;

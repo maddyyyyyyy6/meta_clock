@@ -1,0 +1,108 @@
+.side-menu{
+    height: 100vh;
+    /* width: 300px; */
+    background-color: #262626bf;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    max-width: 300px;    
+    border-right: 0.1px solid #707070;
+    width: 0px;
+    overflow: hidden;
+    @include flexcenter(column);
+    justify-content: space-between;
+    backdrop-filter: blur(21px) saturate(2.5);
+    transition: width 0.2s ease-in;
+    
+    // &:hover{
+    //     background-color: #fff;
+    //     width: 0px;
+    // }
+
+    & ul {
+        width: 100%;
+        font-size: 15px;
+        color: #fff;
+        list-style: none;
+        margin-top: 25px;
+        padding-left: 0px;
+
+        & li{
+            margin: 5px 0;
+            border-radius: 5px;
+            padding: 8px 0;
+            padding-left: 29px;
+            cursor: pointer;
+            &::before{
+                transition: all 0.5s;
+                content: "";
+                position: absolute;
+                transform-origin: center;
+                width: 5px;
+                height: 0px;
+                border-radius: 5px;
+                left: 3%;
+                background-color: $feature-color;
+                transform: translateY(-50%);
+            }
+            &:hover::before{
+                height: 20px;
+                transform: translateY(0%);
+
+
+    
+                
+            }
+
+            
+
+        }
+        & li:hover{
+            background-color: $side-menu-hover;
+        }
+        
+    }
+
+    & > li{
+        width: 86%;
+        font-size: 20px;
+        color: #fff;
+        list-style: none;
+        padding-left: 33px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.5s;
+        &::before{
+            content: "";
+            position: absolute;
+            width: 5px;
+            height: 0px;
+            border-radius: 5px;
+            left: 5%;
+            background-color: $feature-color;
+
+        }
+        &:hover::before{
+            height: 30px;
+
+
+            
+        }
+
+        
+        &:hover{
+            background-color: $side-menu-hover;
+        }
+
+    }
+
+
+}
+
+
+.show{
+    width: 300px;
+}

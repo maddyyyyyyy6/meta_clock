@@ -11,6 +11,9 @@
 <body>
     <div class="ClockApp">
         <div class="TitleBar">
+            <div id="hamburger-menu" class="HamburgerMenu">
+                <i class="fas fa-bars"></i>
+            </div>
             <div class="IconandName">
                 <div id="title" class="title"></div>
             </div>
@@ -26,12 +29,26 @@
                 </button>
             </div>
         </div>
+        <!-- AppScreen -->
         <div class="AppScreen">
+            <div id="side-menu" class="side-menu">
+                <ul>
+                    <li>Clock</li>
+                    <li>Alarm</li>
+                    <li>Timer</li>
+                    <li>Stopwatch</li>
+                </ul>
+
+                <li>Settings</li>
+            </div>
+
+            <!-- Code for Splash Screen -->
             <div id="splash-screen" class="splash-screen hidden">
                 <div class="Name">Clock</div>
                 <div class="author">by TonyCoder</div>
             </div>
 
+            <!-- Code for Simple Clock(Digital/Analog) -->
             <div id="Clock" class="Clock">
                 <div id="digital-view" class="Digital-Clock">
                     <div id="DayNight" class="DayNight">
@@ -86,10 +103,12 @@
                 </div>
 
             </div>
+
         </div>
     </div>
     <script src="./JS/TitleBar.js"></script>
     <script src="./JS/Splash_Screen.js"></script>
+    <script src="./JS/Hamburber_Menu.js"></script>
     <script src="./JS/Clock.js"></script>
     <script src="./JS/Analog.js"></script>
 </body>

@@ -9,11 +9,22 @@
     background-color: $primary-color;
     -webkit-app-region:drag;
 
+    & .HamburgerMenu{
+        z-index: 2;
+        -webkit-app-region:none;
+        cursor: pointer;
+        & i{
+            color: #fff;
+        }
+        color: #fff;
+        margin-left: 10px;
+    }
     & .TitleBarButtons{
         display: flex;
         align-items: center;
         justify-content: center;
         -webkit-app-region:none;
+
 
         & button{
             margin: 0 5px;
