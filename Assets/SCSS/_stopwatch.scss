@@ -1,0 +1,61 @@
+.Stopwatch{
+    @include screen;
+    @include flexcenter(column);
+
+    & .runner{
+        font-size: 80px;
+        color: #fff;
+    }
+
+    // indicates
+
+    & .indicates{
+        @include flexcenter(row);
+        width: 70%;
+        padding-right: 80px;
+        margin-top: 0;
+        justify-content: space-around;
+        
+        & span{
+            font-size: 20px;
+            color: #fff;
+        }
+    }
+
+    & .stopwatch-controls{
+        @include flexcenter(row);
+
+        margin-top: 15px;
+        & button{
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 50%;
+            @include flexcenter(row);
+            margin: 0 5px;
+
+            & img{
+                width: 22px;
+            }
+
+        }
+
+        & button:first-child{
+            background-color: $feature-color;
+        }
+        & button:nth-child(2){
+            border: 1px solid #fff;
+        }
+
+        & button:last-child{
+            border: 1px solid #fff;
+
+            & i{
+                font-size: 20px;
+                color: $primary-color;
+                transform:rotateY(180deg);
+            }
+        }
+    }
+}

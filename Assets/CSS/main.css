@@ -934,6 +934,70 @@
   transform: rotateY(180deg);
 }
 
+.Stopwatch {
+  background-color: #2E2E2E;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.Stopwatch .runner {
+  font-size: 80px;
+  color: #fff;
+}
+.Stopwatch .indicates {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  padding-right: 80px;
+  margin-top: 0;
+  justify-content: space-around;
+}
+.Stopwatch .indicates span {
+  font-size: 20px;
+  color: #fff;
+}
+.Stopwatch .stopwatch-controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+.Stopwatch .stopwatch-controls button {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0 5px;
+}
+.Stopwatch .stopwatch-controls button img {
+  width: 22px;
+}
+.Stopwatch .stopwatch-controls button:first-child {
+  background-color: #4CABBF;
+}
+.Stopwatch .stopwatch-controls button:nth-child(2) {
+  border: 1px solid #fff;
+}
+.Stopwatch .stopwatch-controls button:last-child {
+  border: 1px solid #fff;
+}
+.Stopwatch .stopwatch-controls button:last-child i {
+  font-size: 20px;
+  color: #2E2E2E;
+  transform: rotateY(180deg);
+}
+
 html, body {
   margin: 0;
   padding: 0;

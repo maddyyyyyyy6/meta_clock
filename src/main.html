@@ -33,10 +33,10 @@
         <div class="AppScreen">
             <div id="side-menu" class="side-menu">
                 <ul>
-                    <li>Clock</li>
-                    <li>Alarm</li>
-                    <li>Timer</li>
-                    <li>Stopwatch</li>
+                    <li id="Clock-side-menu">Clock</li>
+                    <li id="Alarm-side-menu">Alarm</li>
+                    <li id="Timer-side-menu">Timer</li>
+                    <li id="Stopwatch-side-menu">Stopwatch</li>
                 </ul>
 
                 <li>Settings</li>
@@ -49,7 +49,7 @@
             </div>
 
             <!-- Code for Simple Clock(Digital/Analog) -->
-            <div id="Clock" class="Clock hide">
+            <div id="Clock" class="Clock">
                 <div id="digital-view" class="Digital-Clock">
                     <div id="DayNight" class="DayNight">
                     </div>
@@ -238,7 +238,7 @@
             </div>
 
             <!-- Code for Timer -->
-            <div class="Timer">
+            <div id="Timer" class="Timer hidden">
                 <div id="timer-box" class="timer-box">
                     <div class="label_controls">
                         <span class="label">
@@ -265,6 +265,24 @@
 
 
                 </div>
+            </div>
+
+            <!-- Code for StopWatch -->
+            <div id="Stopwatch" class="Stopwatch">
+                <div class="runner">
+                    00:00:00:00
+                </div>
+                <div class="indicates">
+                    <span>hr</span>
+                    <span>min</span>
+                    <span>sec</span>
+                </div>
+                <div class="stopwatch-controls">
+                    <button><img src="../Assets/Icons/play-dark.png" alt=""></button>
+                    <button><img src="../Assets/Icons/flag-dark.png" alt=""></button>
+                    <button><i class="fas fa-redo"></i></button>
+                </div>
+
             </div>
 
         </div>
