@@ -511,14 +511,235 @@
 }
 .Alarm .add-alarm-form {
   position: fixed;
+  overflow: hidden;
   top: 45%;
   left: 50%;
   width: 318px;
-  height: 460px;
+  height: 500px;
   border-radius: 7px;
   background-color: #2E2E2E;
   border: 0.5px solid #101010;
   transform: translate(-50%, -50%);
+  font-family: Poppins_Regular;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.Alarm .add-alarm-form .heading {
+  font-size: 19px;
+  color: #ffffff;
+  text-align: start;
+}
+.Alarm .add-alarm-form .upbuttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+  width: 75%;
+}
+.Alarm .add-alarm-form .upbuttons button {
+  border: none;
+  background-color: transparent;
+}
+.Alarm .add-alarm-form .upbuttons button img {
+  width: 30px;
+}
+.Alarm .add-alarm-form .downbuttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+  width: 75%;
+}
+.Alarm .add-alarm-form .downbuttons button {
+  border: none;
+  background-color: transparent;
+}
+.Alarm .add-alarm-form .downbuttons button img {
+  width: 30px;
+  transform: rotate(180deg);
+}
+.Alarm .add-alarm-form .time-selector {
+  width: 75%;
+  height: 100px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.Alarm .add-alarm-form .time-selector span {
+  font-size: 40px;
+  color: #ffffff;
+}
+.Alarm .add-alarm-form .alarm-label-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+.Alarm .add-alarm-form .alarm-label-input img {
+  width: 20px;
+}
+.Alarm .add-alarm-form .alarm-label-input input {
+  height: 25px;
+  width: 200px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 0.5px solid #707070;
+  border-radius: 5px;
+  color: #ffffff;
+}
+.Alarm .add-alarm-form .alarm-label-input input::-moz-placeholder {
+  color: #ffffff;
+}
+.Alarm .add-alarm-form .alarm-label-input input:-ms-input-placeholder {
+  color: #ffffff;
+}
+.Alarm .add-alarm-form .alarm-label-input input::placeholder {
+  color: #ffffff;
+}
+.Alarm .add-alarm-form .alarm-repeat-controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  width: 60%;
+  margin-top: 10px;
+}
+.Alarm .add-alarm-form .alarm-repeat-controls .repeat-checkbox {
+  width: 15px;
+  height: 15px;
+  border: 1px solid #fff;
+  border-radius: 3px;
+}
+.Alarm .add-alarm-form .alarm-repeat-controls span {
+  font-size: 15px;
+  color: #ffffff;
+}
+.Alarm .add-alarm-form .repeatation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-content: flex-start;
+  padding-left: 9px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin-top: 10px;
+}
+.Alarm .add-alarm-form .repeatation span {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #4CABBF;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  font-size: 15px;
+  color: #fff;
+  justify-content: center;
+  align-content: center;
+  margin: 0 3px;
+  border: 0.5px solid #4CABBF;
+}
+.Alarm .add-alarm-form .repeatation .deselect {
+  background-color: transparent;
+  border: 0.5px solid #4CABBF;
+  color: #4CABBF;
+  transform: scale(-0.5px);
+}
+.Alarm .add-alarm-form .alarm-tune-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  width: 60%;
+  margin-top: 10px;
+}
+.Alarm .add-alarm-form .alarm-tune-input img {
+  width: 20px;
+}
+.Alarm .add-alarm-form .alarm-tune-input input {
+  height: 25px;
+  width: 200px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 0.5px solid #707070;
+  color: #ffffff;
+  border-radius: 5px;
+}
+.Alarm .add-alarm-form .alarm-tune-input input::-moz-placeholder {
+  color: #ffffff;
+}
+.Alarm .add-alarm-form .alarm-tune-input input:-ms-input-placeholder {
+  color: #ffffff;
+}
+.Alarm .add-alarm-form .alarm-tune-input input::placeholder {
+  color: #ffffff;
+}
+.Alarm .add-alarm-form .alarm-snooze-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  width: 60%;
+  margin-top: 10px;
+}
+.Alarm .add-alarm-form .alarm-snooze-input img {
+  width: 20px;
+}
+.Alarm .add-alarm-form .alarm-snooze-input input {
+  height: 25px;
+  width: 200px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 0.5px solid #707070;
+  color: #ffffff;
+  border-radius: 5px;
+}
+.Alarm .add-alarm-form .alarm-snooze-input input::-moz-placeholder {
+  color: #ffffff;
+}
+.Alarm .add-alarm-form .alarm-snooze-input input:-ms-input-placeholder {
+  color: #ffffff;
+}
+.Alarm .add-alarm-form .alarm-snooze-input input::placeholder {
+  color: #ffffff;
+}
+.Alarm .add-alarm-form .buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.Alarm .add-alarm-form .buttons button {
+  font-size: 15px;
+  font-family: "Poppins_Regular";
+  width: 124px;
+  height: 32px;
+  background-color: #2E2E2E;
+  border: 2px solid #3B3B3B;
+  border-radius: 5px;
+  color: #ffffff;
+  margin: 0 5px;
+}
+.Alarm .add-alarm-form .buttons button:first-child {
+  color: #2E2E2E;
+  background-color: #4CABBF;
+  border-color: #2C6D7B;
+}
+.Alarm .hide-menu {
+  height: 0;
+  display: none;
 }
 .Alarm .addButton {
   position: fixed;

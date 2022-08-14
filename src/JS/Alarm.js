@@ -18,11 +18,11 @@ for(let i = 0;i<Switch.length;i++) {
 // Add alarm menu
 
 const Add_Alarm_Btn = document.getElementById('add-alarm');
-const Add_Alarm_Menu = document.getElementById('add-alarm-menu');
+const Add_Alarm_Menu = document.getElementById('add-alarm-form');
 
 
 Add_Alarm_Btn.addEventListener('click',() => {
-    Add_Alarm_Menu.classList.toggle('hide');
+    Add_Alarm_Menu.classList.toggle('hide-menu');
     // while(!Add_Alarm_Menu.classList.contains('hide')) {
     //     Add_Alarm_Btn.ariaDisabled = 'true';
     // }

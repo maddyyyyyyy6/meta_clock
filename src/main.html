@@ -106,13 +106,69 @@
 
             <!-- Code for Alarm -->
             <div id="Alarm" class="Alarm">
-                <div id="add-alarm" class="addButton">
-                    <button><img src="../Assets/Icons/pencil.png" alt=""></button>
-                    <button><img src="../Assets/Icons/plus.png" alt=""></button>
+                <div  class="addButton">
+                    <button ><img src="../Assets/Icons/pencil.png" alt=""></button>
+                    <button id="add-alarm"><img src="../Assets/Icons/plus.png" alt=""></button>
 
                 </div>
-                <div id="add-alarm-menu" class="add-alarm-form hide">
-                    
+                <div id="add-alarm-form" class="add-alarm-form hide-menu">
+                    <div class="heading">
+                        Add new alarm
+                    </div>
+                    <!-- add time -->
+                    <div class="upbuttons">
+                        <button><img src="../Assets/Icons/up-arrow.png" alt=""></button>
+                        <button><img src="../Assets/Icons/up-arrow.png" alt=""></button>
+                        <button><img src="../Assets/Icons/up-arrow.png" alt=""></button>
+                    </div>
+                    <div class="time-selector">
+                        <span id="hour">07</span>:
+                        <span id="minute">07</span>:
+                        <span id="SpanSelector">AM</span>
+                    </div>
+                    <div class="downbuttons">
+                        <button><img src="../Assets/Icons/up-arrow.png" alt=""></button>
+                        <button><img src="../Assets/Icons/up-arrow.png" alt=""></button>
+                        <button><img src="../Assets/Icons/up-arrow.png" alt=""></button>
+                    </div>
+
+                    <!-- code for label input -->
+                    <div class="alarm-label-input">
+                        <img src="../Assets/Icons/create.png" alt="">
+                        <input type="text" placeholder="Alarm Name">
+
+                    </div>
+                    <div class="alarm-repeat-controls">
+                        <div class="repeat-checkbox"></div>
+                        <span>Repeat alarm</span>
+                    </div>
+                    <div class="repeatation">
+                        <span class="btnday deselect">Sun</span>
+                        <span class="btnday deselect">M</span>
+                        <span class="btnday deselect">Tu</span>
+                        <span class="btnday deselect">We</span>
+                        <span class="btnday deselect">Th</span>
+                        <span class="btnday deselect">Fri</span>
+                        <span class="btnday deselect">Sa</span>
+                    </div>
+                    <!-- tune select -->
+                    <div class="alarm-tune-input">
+                        <img src="../Assets/Icons/tune.png" alt="">
+                        <input type="text" placeholder="Tune Name">
+
+                    </div>
+                    <!-- snooze time select -->
+                    <div class="alarm-snooze-input">
+                        <img src="../Assets/Icons/snooze.png" alt="">
+                        <input type="text" placeholder="10 minute">
+
+                    </div>
+
+                    <!-- save alarm cancel buttons -->
+                    <div class="buttons">
+                        <button>Save</button>
+                        <button>Cancel</button>
+                    </div>
                 </div>
                 <div id="alarm-box" class="alarm-box">
                     <div class="alarm-time">07:00</div>
