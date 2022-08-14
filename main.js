@@ -1,4 +1,6 @@
-const {BrowserWindow, app,IpcMain, ipcMain} = require('electron')
+const {BrowserWindow, app,IpcMain, ipcMain, ipcRenderer} = require('electron')
+
+
 
 let mainWindow
 
@@ -16,7 +18,8 @@ const runWindow = () => {
     })
 
     mainWindow.loadFile('src/main.html')
-    mainWindow.show()
+    mainWindow.show();
+    
 
     
 }
@@ -26,6 +29,31 @@ app.on('ready',() => {
     runWindow()
     
 })
+
+// app.on('ready', function() {
+//     var path = require("path");
+//     var fs = require("fs");
+//     var initPath = path.join(__dirname, "init.json");
+//     var data;
+//     try {
+//       data = JSON.parse(fs.readFileSync(initPath, 'utf8'));
+//     }
+//     catch(e) {
+//     }
+//     // Create the browser window.
+//     mainWindow = new BrowserWindow((data && data.bounds) ? data.bounds : {width: 800, height: 600});
+//     mainWindow.loadFile('src/main.html')
+    
+//     mainWindow.on("close", function() {
+//       var data = {
+//         bounds: mainWindow.getBounds()
+//       };
+//       fs.writeFileSync(initPath, JSON.stringify(data));
+//     })
+    
+// })
+
+
 
 ipcMain.on('minimize-screen',() => {
     console.log('Minimize');
@@ -42,3 +70,18 @@ ipcMain.on('maximize-screen',() => {
     console.log('Maximize');
 
 })
+
+ipcMain.on('close-screen',() => {
+    console.log('Quit')
+    app.quit();
+
+
+})
+
+
+
+
+
+
+
+

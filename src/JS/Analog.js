@@ -10,6 +10,7 @@ const AnalogTodayView = document.getElementById('Analog-Today-view');
 const AnalogDayNight = document.getElementById('analog-DayNight');
 const AnalogDateDisplay = document.getElementById('analog-date');
 const AnalogDayDisplay = document.getElementById('analog-day');
+const Change_Clock_Btn = document.getElementById('Change-clock-btn');
 
 
 
