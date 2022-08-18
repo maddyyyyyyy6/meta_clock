@@ -5,6 +5,29 @@
     & .runner{
         font-size: 80px;
         color: #fff;
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+        & .hours{
+            width: 100px;
+
+        }
+        & .minutes{
+            width: 100px;
+
+
+        }
+        & .seconds{
+            width: 100px;
+
+
+        }
+        & .milli-secs{
+            width: 100px;
+            font-size: 20px;
+        }
     }
 
     // indicates

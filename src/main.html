@@ -117,25 +117,25 @@
                     </div>
                     <!-- add time -->
                     <div class="upbuttons">
-                        <button><img src="../Assets/Icons/up-arrow.png" alt=""></button>
-                        <button><img src="../Assets/Icons/up-arrow.png" alt=""></button>
-                        <button><img src="../Assets/Icons/up-arrow.png" alt=""></button>
+                        <button id="hour-up"><img src="../Assets/Icons/up-arrow.png" alt=""></button>
+                        <button id="minute-up"><img src="../Assets/Icons/up-arrow.png" alt=""></button>
+                        <button id="ampm-up"><img src="../Assets/Icons/up-arrow.png" alt=""></button>
                     </div>
                     <div class="time-selector">
-                        <span id="hour">07</span>:
-                        <span id="minute">07</span>:
-                        <span id="SpanSelector">AM</span>
+                        <span id="hour">00</span>:
+                        <span id="minute">00</span>:
+                        <span id="ampm">AM</span>
                     </div>
                     <div class="downbuttons">
-                        <button><img src="../Assets/Icons/up-arrow.png" alt=""></button>
-                        <button><img src="../Assets/Icons/up-arrow.png" alt=""></button>
-                        <button><img src="../Assets/Icons/up-arrow.png" alt=""></button>
+                        <button id="hour-down"><img src="../Assets/Icons/up-arrow.png" alt=""></button>
+                        <button id="minute-down"><img src="../Assets/Icons/up-arrow.png" alt=""></button>
+                        <button id="ampm-down"><img src="../Assets/Icons/up-arrow.png" alt=""></button>
                     </div>
 
                     <!-- code for label input -->
                     <div class="alarm-label-input">
                         <img src="../Assets/Icons/create.png" alt="">
-                        <input type="text" placeholder="Alarm Name">
+                        <input id="label-alarm" type="text" placeholder="Alarm Name">
 
                     </div>
                     <div class="alarm-repeat-controls">
@@ -160,17 +160,17 @@
                     <!-- snooze time select -->
                     <div class="alarm-snooze-input">
                         <img src="../Assets/Icons/snooze.png" alt="">
-                        <input type="text" placeholder="10 minute">
+                        <input type="text" placeholder="Snooze time">
 
                     </div>
 
                     <!-- save alarm cancel buttons -->
                     <div class="buttons">
-                        <button>Save</button>
-                        <button>Cancel</button>
+                        <button id="save-alarm">Save</button>
+                        <button id="cancel-add-alarm">Cancel</button>
                     </div>
                 </div>
-                <div id="alarm-box" class="alarm-box">
+                <!-- <!-- <div id="alarm-box" class="alarm-box">
                     <div class="alarm-time">07:00</div>
                     <div class="alarm-controls">
                         <div class="alarm-label">
@@ -190,8 +190,8 @@
                         <span class="btnday deselect">Sa</span>
                     </div>
 
-                </div>
-                <div id="alarm-box" class="alarm-box">
+                </div> -->
+                <!-- <div id="alarm-box" class="alarm-box">
                     <div class="alarm-time">07:00</div>
                     <div class="alarm-controls">
                         <div class="alarm-label">
@@ -232,7 +232,7 @@
                         <span class="btnday deselect">Sa</span>
                     </div>
 
-                </div>
+                </div> -->
                 
                 
             </div>
@@ -269,8 +269,11 @@
 
             <!-- Code for StopWatch -->
             <div id="Stopwatch" class="Stopwatch">
-                <div class="runner">
-                    00:00:00:00
+                <div id="runner" class="runner">
+                    <div class="hours" id="hours">00</div><span>:</span>
+                    <div class="minutes" id="minutes">00</div><span>:</span>
+                    <div class="seconds" id="seconds">00</div><span>.</span>
+                    <div class="milli-secs" id="milli-secs">00</div>
                 </div>
                 <div class="indicates">
                     <span>hr</span>
@@ -278,9 +281,9 @@
                     <span>sec</span>
                 </div>
                 <div class="stopwatch-controls">
-                    <button><img src="../Assets/Icons/play-dark.png" alt=""></button>
-                    <button><img src="../Assets/Icons/flag-dark.png" alt=""></button>
-                    <button><i class="fas fa-redo"></i></button>
+                    <button id="run"><img src="../Assets/Icons/play-dark.png" alt=""></button>
+                    <button id="stop"><img src="../Assets/Icons/flag-dark.png" alt=""></button>
+                    <button id="reset-watch"><i class="fas fa-redo"></i></button>
                 </div>
 
             </div>
@@ -293,6 +296,8 @@
     <script src="./JS/Clock.js"></script>
     <script src="./JS/Analog.js"></script>
     <script src="./JS/Alarm.js"></script>
+    <script src="./JS/Stopwatch.js"></script>
+
 </body>
 
 </html>

@@ -15,4 +15,9 @@ TODO List for Clock App
 *13. Timer Controls
 *14. Stopwatch Controls UI and Design
 *15. Added Hamburger Funtioning
+16. Alarm add feature
+17. Stopwatch counting
+18. 
+19
+20
 

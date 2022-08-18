@@ -42,7 +42,10 @@
 
             & button{
                 border: none;
-                background-color: transparent;
+                border: none;
+                background-color: #00000021;
+                border-radius: 7px;
+                margin-bottom: 5px;
                 & img{
                     width: 30px;
                 }
@@ -57,12 +60,19 @@
 
             & button{
                 border: none;
-                background-color: transparent;
+                border: none;
+                background-color: #00000021;
+                border-radius: 7px;
+                margin-bottom: 5px;
                 & img{
                     width: 30px;
                     transform: rotate(180deg);
                 }
             }
+            
+        }
+        .clicked{
+            transform: translateY(2px);
         }
 
         & .time-selector{
@@ -70,7 +80,8 @@
             height: 100px;
             border: 1px solid #fff;
             border-radius: 5px;
-
+            font-size: 40px;
+            color: #fff;
             display: flex;
             align-items: center;
             justify-content: space-around;
@@ -78,7 +89,54 @@
                 font-size: 40px;
                 color: $secondary-color;
                 
+            
+                
             }
+
+            & span:first-child{
+                width: 40px;
+            }
+
+            & span:nth-child(2){
+                width: 40px;
+            }
+            & span:last-child{
+                width: 56px;
+            }
+            .text-animate-up{
+                animation: text_up;
+                animation-timing-function: linear;
+                animation-duration: 0.2s;
+            }
+
+            .text-animate-down{
+                animation: text_down;
+                animation-timing-function: linear;
+                animation-duration: 0.2s;
+            }
+        }
+
+        @keyframes text_up {
+            0%{
+                opacity: 0;
+                transform: translateY(20px)
+            };
+            100%{
+                opacity: 1;
+                transform: translateY(0)
+            }
+            
+        }
+        @keyframes text_down {
+            0%{
+                opacity: 0;
+                transform: translateY(-20px)
+            };
+            100%{
+                opacity: 1;
+                transform: translateY(0)
+            }
+            
         }
 
 
@@ -87,6 +145,8 @@
         // alarm label 
         & .alarm-label-input{
             @include flexcenter(row);
+            justify-content: space-around;
+            width: 75%;
             margin-top: 10px;
             & img{
                 width: 20px;
@@ -98,9 +158,14 @@
                 background-color: rgb(255 255 255 / 20%);
                 border: 0.5px solid #707070;
                 border-radius: 5px;
-                color: $secondary-color;
+                font-size: 18px;
+                font-family: 'Poppins_Regular';
+                color: #a5a3a3;
+                outline: none;
+
                 &::placeholder{
-                    color: $secondary-color
+                    font-family: 'Poppins_Regular';
+                    color: #a5a3a3;
 
                 }
             }
@@ -164,8 +229,8 @@
         & .alarm-tune-input{
             @include flexcenter(row);
             justify-content: space-between;
-            width: 60%;
-            margin-top: 10px;
+            width: 75%;
+            margin-top: 15px;
 
             & img{
                 width: 20px;
@@ -175,11 +240,17 @@
                 width: 200px;
                 background-color: rgb(255 255 255 / 20%);
                 border: 0.5px solid #707070;
-                color: $secondary-color;
                 border-radius: 5px;
+                font-size: 18px;
+                font-family: 'Poppins_Regular';
+                color: #a5a3a3;
+                outline: none;
+
                 &::placeholder{
-                color: $secondary-color
-            }
+                    font-family: 'Poppins_Regular';
+                    color: #a5a3a3;
+
+                }
             }
         }
 
@@ -189,8 +260,8 @@
         & .alarm-snooze-input{
             @include flexcenter(row);
             justify-content: space-between;
-            width: 60%;
-            margin-top: 10px;
+            width: 75%;
+            margin-top: 15px;
 
             & img{
                 width: 20px;
@@ -200,18 +271,24 @@
                 width: 200px;
                 background-color: rgb(255 255 255 / 20%);
                 border: 0.5px solid #707070;
-                color: $secondary-color;
                 border-radius: 5px;
+                font-size: 18px;
+                font-family: 'Poppins_Regular';
+                color: #a5a3a3;
+                outline: none;
                 &::placeholder{
-                color: $secondary-color
-            }
+                    font-family: 'Poppins_Regular';
+                    color: #a5a3a3;
+
+                }
+
             }
         }
 
         & .buttons{
             @include flexcenter(row);
             justify-content: space-between;
-            margin-top: 10px;
+            margin-top: 20px;
             & button{
                 font-size: 15px;
                 font-family: 'Poppins_Regular';
