@@ -12,7 +12,8 @@
     
     & .Name{
         font-size: 60px;
-        color: $primary-font-color;
+        // color: --primary-font-color;
+        color: var(--secondary-color);
         margin-bottom: 0;
         line-height: 60%;
         animation: present;
@@ -22,7 +23,9 @@
     }
     & .author{
         font-size: 15px;
-        color: $secondary-font-color;
+        // color: var(--secondary-font-color);
+        color: var(--secondary-color);
+        // color: --primary-font-color;
         animation: present;
         animation-timing-function: linear;
         animation-duration: 1s;
@@ -34,11 +37,12 @@
 @keyframes present {
     0%{
         opacity: 0;
-        transform: translateY(50px);
+        transform: translateY(70px);
     };
     100%{
         opacity: 1;
         transform: translateY(0px);
+
     };
     
 }

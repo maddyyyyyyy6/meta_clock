@@ -21,3 +21,28 @@ TODO List for Clock App
 19
 20
 
+implement for alarm
+
+
+
+
+[{
+    id:1,
+    label:"Good Morning",
+    time:"07:00",
+    repeat:[""],
+    tune:"Morning vibes",
+    snooze:5
+}]
+
+function iterate(time) {
+    alarms.foreach(alarm => {
+        check(time,alarm.time)
+    })
+}
+
+check(time,alarm.time) {
+    if(time)
+}
+
+

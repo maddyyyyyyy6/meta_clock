@@ -31,6 +31,14 @@ function refreshClock() {
     // var minutes = date.getMinutes();
     // var seconds = date.getSeconds();
     var hour = datetime.getHours();
+    var min = datetime.getMinutes();
+    // AlarmList.forEach(alarm => {
+        console.log(checkAlarm(1,hour-12))
+    // })
+    if (checkAlarm(1,hour-12) && checkAlarm(2,min)){
+        console.log(AlarmList)
+        console.log("time out")
+    }
     var lastindex = (hour < 10) ? 7:8;
     return (lastindex === 7)? "0"+time.substring(0,lastindex):time.substring(0,lastindex);
 }
@@ -38,6 +46,7 @@ function refreshClock() {
 
 function updateTime() {
     Display_Time.innerHTML = refreshClock();
+    
 
 }
 setInterval(updateTime,1000);
@@ -58,12 +67,12 @@ getAMPM()
 
 function getAMPM() {
     var time = getToday().toLocaleTimeString();
-    console.log(typeof time);
-    console.log(time.substring(time.length ,time.length -2));
+    // console.log(typeof time);
+    // console.log(time.substring(time.length ,time.length -2));
     var timelen = time.length;
     var ampm = time.substring(timelen ,timelen -2);
     
-    getSpan('AM');
+    getSpan(ampm);
 }
 
 function getSpan(AMPM) {
@@ -75,7 +84,7 @@ function getSpan(AMPM) {
     sunmoon.classList.add('fa-' + logo);
     
     var span = (AMPM === 'AM')? 'Daytime':'Nightime';
-    console.log(span)
+    // console.log(span)
     
     DayNight.innerText = span;
     DayNight.appendChild(sunmoon);

@@ -18,6 +18,38 @@
   font-family: Poppins_Light;
   src: url("../Fonts/Poppins-Light.ttf");
 }
+.dark-theme {
+  --primary-color: #2e2e2e;
+  --secondary-color: #ffffff;
+  --feature-color: #4cabbf;
+  --feature-border-color: #2c6d7b;
+  --default: #fff;
+  --side-menu-hover: #ffffff1a;
+  --primary-font-color: #ffffff;
+  --secondary-font-color: rgba(255, 255, 255, 0.45);
+  --half-white: rgba(255, 255, 255, 0.5);
+  --border-color-form:#101010;
+  --alarm-input-bg:#fff;
+  --alarm-add-form-bg:#3B3B3B;
+  --alarm-label-color:rgb(255 255 255 /50%);
+}
+
+.light_theme {
+  --primary-color: #fff;
+  --secondary-color: #2e2e2e;
+  --feature-color: #4cabbf;
+  --feature-border-color: #2c6d7b;
+  --default: #2e2e2e;
+  --side-menu-hover: #ffffff1a;
+  --primary-font-color: #2e2e2e;
+  --secondary-font-color: rgba(255, 255, 255, 0.1);
+  --half-white: rgba(255, 255, 255, 0.5);
+  --border-color-form:#313131;
+  --alarm-input-bg:rgb(255, 255, 255);
+  --alarm-add-form-bg:#bdbdbd;
+  --alarm-label-color:rgba(0, 0, 0, 0.5);
+}
+
 .invisible {
   visibility: hidden;
 }
@@ -41,7 +73,7 @@
   justify-content: space-between;
   -webkit-backdrop-filter: blur(21px) saturate(2.5);
           backdrop-filter: blur(21px) saturate(2.5);
-  transition: width 0.2s ease-in;
+  transition: width 0.2s ease-out;
 }
 .side-menu ul {
   width: 100%;
@@ -67,7 +99,7 @@
   height: 0px;
   border-radius: 5px;
   left: 3%;
-  background-color: #4CABBF;
+  background-color: var(--feature-color);
   transform: translateY(-50%);
 }
 .side-menu ul li:hover::before {
@@ -75,7 +107,7 @@
   transform: translateY(0%);
 }
 .side-menu ul li:hover {
-  background-color: rgba(255, 255, 255, 0.1019607843);
+  background-color: var(--side-menu-hover);
 }
 .side-menu > li {
   width: 86%;
@@ -96,13 +128,13 @@
   height: 0px;
   border-radius: 5px;
   left: 5%;
-  background-color: #4CABBF;
+  background-color: var(--feature-color);
 }
 .side-menu > li:hover::before {
   height: 30px;
 }
 .side-menu > li:hover {
-  background-color: rgba(255, 255, 255, 0.1019607843);
+  background-color: var(--side-menu-hover);
 }
 
 .show {
@@ -110,7 +142,7 @@
 }
 
 .Clock {
-  background-color: #2E2E2E;
+  background-color: var(--primary-color);
   width: 100%;
   height: 100%;
   display: flex;
@@ -122,6 +154,7 @@
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  color: var(--secondary-color);
 }
 .Clock .Digital-Clock {
   font-family: Poppins_Regular;
@@ -138,7 +171,7 @@
   margin-top: 50px;
 }
 .Clock .Digital-Clock .DayNight {
-  color: #FFFFFF;
+  color: var(--primary-font-color);
   font-size: 50px;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -147,7 +180,7 @@
 }
 .Clock .Digital-Clock .Time {
   font-size: 110px;
-  color: #FFFFFF;
+  color: var(--primary-font-color);
   transition: 0.5s;
 }
 .Clock .Digital-Clock .Today {
@@ -156,13 +189,13 @@
   align-items: center;
   justify-content: center;
   font-size: 30px;
-  color: #FFFFFF;
+  color: var(--primary-font-color);
   margin-bottom: 140px;
 }
 .Clock .Digital-Clock .Today .slash {
   width: 2px;
   height: 45px;
-  background-color: #ffffff;
+  background-color: var(--secondary-color);
   margin: 0 10px;
 }
 .Clock .Analog-Clock {
@@ -182,7 +215,7 @@
 }
 .Clock .Analog-Clock .clock-circle {
   position: absolute;
-  border: 10px solid #ffffff;
+  border: 10px solid var(--secondary-color);
   width: 250px;
   height: 250px;
   border-radius: 50%;
@@ -190,14 +223,14 @@
   top: 20%;
 }
 .Clock .Analog-Clock .clock-circle span {
-  color: #4CABBF;
+  color: var(--feature-color);
 }
 .Clock .Analog-Clock .clock-circle .dot {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background-color: #ffffff;
-  z-index: 1000;
+  background-color: var(--secondary-color);
+  z-index: 0;
 }
 .Clock .Analog-Clock .clock-circle .clock__hour, .Clock .Analog-Clock .clock-circle .clock__minutes, .Clock .Analog-Clock .clock-circle .clock__seconds {
   position: absolute;
@@ -211,7 +244,7 @@
 .Clock .Analog-Clock .clock-circle .clock__hour::before {
   content: "";
   position: absolute;
-  background-color: #2C6D7B;
+  background-color: var(--feature-border-color);
   width: 0.25rem;
   height: 3rem;
   border-radius: 0.75rem;
@@ -224,7 +257,7 @@
 .Clock .Analog-Clock .clock-circle .clock__minutes::before {
   content: "";
   position: absolute;
-  background-color: #4CABBF;
+  background-color: var(--feature-color);
   width: 0.25rem;
   height: 4rem;
   border-radius: 0.75rem;
@@ -237,7 +270,7 @@
 .Clock .Analog-Clock .clock-circle .clock__seconds::before {
   content: "";
   position: absolute;
-  background-color: #fff;
+  background-color: var(--primary-font-color);
   width: 0.125rem;
   height: 5rem;
   border-radius: 0.75rem;
@@ -246,7 +279,7 @@
 .Clock .Analog-Clock .clock-circle .line {
   width: 3px;
   height: 30px;
-  background-color: #ffffff;
+  background-color: var(--secondary-color);
 }
 .Clock .Analog-Clock .clock-circle .num1 {
   position: absolute;
@@ -313,7 +346,7 @@
   transform: rotate(-35deg);
 }
 .Clock .Analog-Clock .DayNight {
-  color: #FFFFFF;
+  color: var(--primary-font-color);
   font-size: 50px;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -324,18 +357,18 @@
 }
 .Clock .Analog-Clock .Today {
   font-size: 30px;
-  color: #FFFFFF;
+  color: var(--primary-font-color);
   position: absolute;
   bottom: 20%;
 }
 .Clock .Analog-Clock .Today .slash {
   width: 2px;
   height: 45px;
-  background-color: #ffffff;
+  background-color: var(--secondary-color);
   margin: 0 10px;
 }
 .Clock .ChangeClock {
-  border: 2px solid #fff;
+  border: 2px solid var(--primary-font-color);
   border-radius: 25px;
   width: 359px;
   height: 46px;
@@ -351,13 +384,13 @@
 .Clock .ChangeClock button {
   width: 50%;
   height: 40px;
-  background-color: #4CABBF;
-  border: 1px solid #2C6D7B;
+  background-color: var(--feature-color);
+  border: 1px solid var(--feature-border-color);
   border-radius: 20px;
   font-size: 25px;
   font-family: Poppins_Regular;
   text-align: center;
-  color: #2E2E2E;
+  color: var(--primary-color);
   padding-bottom: 10px;
 }
 .Clock .hidebtn {
@@ -382,7 +415,7 @@
   justify-content: space-between;
   width: 100%;
   height: 30px;
-  background-color: #2E2E2E;
+  background-color: var(--primary-color);
   -webkit-app-region: drag;
 }
 .TitleBar .HamburgerMenu {
@@ -393,7 +426,7 @@
   margin-left: 10px;
 }
 .TitleBar .HamburgerMenu i {
-  color: #fff;
+  color: var(--primary-font-color);
 }
 .TitleBar .TitleBarButtons {
   display: flex;
@@ -403,7 +436,7 @@
 }
 .TitleBar .TitleBarButtons button {
   margin: 0 5px;
-  background-color: #2E2E2E;
+  background-color: var(--primary-color);
   border: none;
   align-items: center;
 }
@@ -415,7 +448,7 @@
 }
 
 .splash-screen {
-  background-color: #2E2E2E;
+  background-color: var(--primary-color);
   width: 100%;
   height: 100%;
   display: flex;
@@ -426,7 +459,7 @@
 }
 .splash-screen .Name {
   font-size: 60px;
-  color: #FFFFFF;
+  color: var(--secondary-color);
   margin-bottom: 0;
   line-height: 60%;
   -webkit-animation: present;
@@ -440,7 +473,7 @@
 }
 .splash-screen .author {
   font-size: 15px;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--secondary-color);
   -webkit-animation: present;
           animation: present;
   -webkit-animation-timing-function: linear;
@@ -454,7 +487,7 @@
 @-webkit-keyframes present {
   0% {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(70px);
   }
   100% {
     opacity: 1;
@@ -465,7 +498,7 @@
 @keyframes present {
   0% {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(70px);
   }
   100% {
     opacity: 1;
@@ -500,18 +533,39 @@
 }
 
 .Alarm {
-  background-color: #2E2E2E;
+  background-color: var(--primary-color);
   width: 100%;
   height: 100%;
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto;
-  background-color: #2E2E2E;
+  background-color: var(--primary-color);
   overflow-y: auto;
   overflow-x: hidden;
   grid-row-gap: 12px;
   padding-top: 3px;
   position: relative;
+}
+.Alarm .empty-message {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-content: center;
+}
+.Alarm .empty-message h1 {
+  color: var(--default);
+  font-size: 25px;
+}
+.Alarm .empty-message p {
+  color: var(--default);
+  font-size: 13px;
+  margin-top: -15px;
+}
+.Alarm .hide-message {
+  display: none;
 }
 .Alarm .add-alarm-form {
   position: fixed;
@@ -521,8 +575,8 @@
   width: 318px;
   height: 500px;
   border-radius: 7px;
-  background-color: #2E2E2E;
-  border: 0.5px solid #101010;
+  background-color: var(--primary-color);
+  border: 0.5px solid var(--border-color-form);
   transform: translate(-50%, -50%);
   font-family: Poppins_Regular;
   display: flex;
@@ -532,7 +586,7 @@
 }
 .Alarm .add-alarm-form .heading {
   font-size: 19px;
-  color: #ffffff;
+  color: var(--secondary-color);
   text-align: start;
 }
 .Alarm .add-alarm-form .upbuttons {
@@ -578,17 +632,17 @@
 .Alarm .add-alarm-form .time-selector {
   width: 75%;
   height: 100px;
-  border: 1px solid #fff;
+  border: 1px solid var(--border-color-form);
   border-radius: 5px;
   font-size: 40px;
-  color: #fff;
+  color: var(--default);
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 .Alarm .add-alarm-form .time-selector span {
   font-size: 40px;
-  color: #ffffff;
+  color: var(--secondary-color);
 }
 .Alarm .add-alarm-form .time-selector span:first-child {
   width: 40px;
@@ -702,12 +756,12 @@
 .Alarm .add-alarm-form .alarm-repeat-controls .repeat-checkbox {
   width: 15px;
   height: 15px;
-  border: 1px solid #fff;
+  border: 1px solid var(--default);
   border-radius: 3px;
 }
 .Alarm .add-alarm-form .alarm-repeat-controls span {
   font-size: 15px;
-  color: #ffffff;
+  color: var(--secondary-color);
 }
 .Alarm .add-alarm-form .repeatation {
   display: flex;
@@ -731,16 +785,16 @@
   text-align: center;
   align-items: center;
   font-size: 15px;
-  color: #fff;
+  color: var(--default);
   justify-content: center;
   align-content: center;
   margin: 0 3px;
-  border: 0.5px solid #4CABBF;
+  border: 0.5px solid var(--feature-color);
 }
 .Alarm .add-alarm-form .repeatation .deselect {
   background-color: transparent;
-  border: 0.5px solid #4CABBF;
-  color: #4CABBF;
+  border: 0.5px solid var(--feature-color);
+  color: var(--feature-color);
   transform: scale(-0.5px);
 }
 .Alarm .add-alarm-form .alarm-tune-input {
@@ -751,6 +805,7 @@
   justify-content: space-between;
   width: 75%;
   margin-top: 15px;
+  position: relative;
 }
 .Alarm .add-alarm-form .alarm-tune-input img {
   width: 20px;
@@ -758,7 +813,7 @@
 .Alarm .add-alarm-form .alarm-tune-input input {
   height: 25px;
   width: 200px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(104, 35, 35, 0.2);
   border: 0.5px solid #707070;
   border-radius: 5px;
   font-size: 18px;
@@ -778,6 +833,38 @@
   font-family: "Poppins_Regular";
   color: #a5a3a3;
 }
+.Alarm .add-alarm-form .alarm-tune-input .select-tune {
+  font-size: 18px;
+  background: var(--alarm-input-bg);
+  width: 86%;
+  border-radius: 5px;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+.Alarm .add-alarm-form .alarm-tune-input .tunes {
+  z-index: 2;
+  font-size: 15px;
+  position: absolute;
+  top: 34px;
+  left: 14%;
+  background: #fff;
+  width: 86%;
+  border: 1px solid var(--border-color-form);
+  border-radius: 5px;
+  display: none;
+}
+.Alarm .add-alarm-form .alarm-tune-input .tunes li {
+  list-style: none;
+  text-align: center;
+  cursor: pointer;
+}
+.Alarm .add-alarm-form .alarm-tune-input .tunes li:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+.Alarm .add-alarm-form .alarm-tune-input .active {
+  display: block;
+}
 .Alarm .add-alarm-form .alarm-snooze-input {
   display: flex;
   flex-direction: row;
@@ -786,32 +873,41 @@
   justify-content: space-between;
   width: 75%;
   margin-top: 15px;
+  position: relative;
 }
 .Alarm .add-alarm-form .alarm-snooze-input img {
   width: 20px;
 }
-.Alarm .add-alarm-form .alarm-snooze-input input {
-  height: 25px;
-  width: 200px;
-  background-color: rgba(255, 255, 255, 0.2);
-  border: 0.5px solid #707070;
-  border-radius: 5px;
+.Alarm .add-alarm-form .alarm-snooze-input .select-snooze {
   font-size: 18px;
-  font-family: "Poppins_Regular";
-  color: #a5a3a3;
-  outline: none;
+  background: var(--alarm-input-bg);
+  width: 86%;
+  border-radius: 5px;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
 }
-.Alarm .add-alarm-form .alarm-snooze-input input::-moz-placeholder {
-  font-family: "Poppins_Regular";
-  color: #a5a3a3;
+.Alarm .add-alarm-form .alarm-snooze-input .snoozes {
+  font-size: 15px;
+  position: absolute;
+  top: -100px;
+  left: 14%;
+  background: #fff;
+  border: 1px solid var(--border-color-form);
+  width: 86%;
+  border-radius: 5px;
+  display: none;
 }
-.Alarm .add-alarm-form .alarm-snooze-input input:-ms-input-placeholder {
-  font-family: "Poppins_Regular";
-  color: #a5a3a3;
+.Alarm .add-alarm-form .alarm-snooze-input .snoozes li {
+  list-style: none;
+  text-align: center;
+  cursor: pointer;
 }
-.Alarm .add-alarm-form .alarm-snooze-input input::placeholder {
-  font-family: "Poppins_Regular";
-  color: #a5a3a3;
+.Alarm .add-alarm-form .alarm-snooze-input .snoozes li:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+.Alarm .add-alarm-form .alarm-snooze-input .active {
+  display: block;
 }
 .Alarm .add-alarm-form .buttons {
   display: flex;
@@ -826,16 +922,16 @@
   font-family: "Poppins_Regular";
   width: 124px;
   height: 32px;
-  background-color: #2E2E2E;
+  background-color: var(--primary-color);
   border: 2px solid #3B3B3B;
   border-radius: 5px;
-  color: #ffffff;
+  color: var(--secondary-color);
   margin: 0 5px;
 }
 .Alarm .add-alarm-form .buttons button:first-child {
-  color: #2E2E2E;
-  background-color: #4CABBF;
-  border-color: #2C6D7B;
+  color: var(--primary-color);
+  background-color: var(--feature-color);
+  border-color: var(--feature-border-color);
 }
 .Alarm .hide-menu {
   height: 0;
@@ -873,13 +969,13 @@
   margin: 0 10px;
   margin-right: 10px;
   border-radius: 10px;
-  background-color: #3B3B3B;
+  background-color: var(--alarm-add-form-bg);
   display: flex;
   flex-direction: column;
 }
 .Alarm .alarm-box .alarm-time {
   font-size: 90px;
-  color: #ffffff;
+  color: var(--secondary-color);
   text-align: center;
 }
 .Alarm .alarm-box .alarm-controls {
@@ -899,7 +995,7 @@
 .Alarm .alarm-box .alarm-controls .switch {
   width: 53px;
   height: 26px;
-  border: 2px solid #fff;
+  border: 2px solid var(--default);
   border-radius: 18px;
   position: relative;
 }
@@ -941,17 +1037,43 @@
   justify-content: center;
   align-content: center;
   margin: 0 3px;
-  border: 0.5px solid #4CABBF;
+  border: 0.5px solid var(--feature-color);
 }
 .Alarm .alarm-box .repeatation .deselect {
   background-color: transparent;
-  border: 0.5px solid #4CABBF;
-  color: #4CABBF;
+  border: 0.5px solid var(--feature-color);
+  color: var(--feature-color);
   transform: scale(-0.5px);
+}
+.Alarm .alarm-box .delete-controls {
+  display: flex;
+  align-items: flex-start;
+  justify-content: end;
+}
+.Alarm .alarm-box .delete-controls button {
+  margin: 0 7px;
+  width: 45px;
+  height: 33px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.Alarm .alarm-box .delete-controls button i {
+  font-size: 20px;
+  color: rgb(237, 112, 112);
+}
+.Alarm .alarm-box .delete-controls button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.hide-btn {
+  display: none;
 }
 
 .Timer {
-  background-color: #2E2E2E;
+  background-color: var(--primary-color);
   width: 100%;
   height: 100%;
   padding-top: 10px;
@@ -1022,7 +1144,7 @@
   width: 18px;
 }
 .Timer .timer-box .timer-controls button:first-child {
-  background-color: #4CABBF;
+  background-color: #4cabbf;
 }
 .Timer .timer-box .timer-controls button:last-child {
   background-color: rgba(255, 255, 255, 0.5);
@@ -1030,12 +1152,12 @@
 }
 .Timer .timer-box .timer-controls button:last-child i {
   font-size: 20px;
-  color: #2E2E2E;
+  color: #2e2e2e;
   transform: rotateY(180deg);
 }
 
 .Stopwatch {
-  background-color: #2E2E2E;
+  background-color: var(--primary-color);
   width: 100%;
   height: 100%;
   display: flex;
@@ -1044,8 +1166,8 @@
   justify-content: center;
 }
 .Stopwatch .runner {
-  font-size: 80px;
-  color: #fff;
+  font-size: 100px;
+  color: var(--default);
   width: 80%;
   display: flex;
   align-items: center;
@@ -1069,9 +1191,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 70%;
-  padding-right: 80px;
-  margin-top: 0;
+  width: 100%;
+  padding-left: 20px;
   justify-content: space-around;
 }
 .Stopwatch .indicates span {
@@ -1086,8 +1207,8 @@
   margin-top: 15px;
 }
 .Stopwatch .stopwatch-controls button {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   background-color: rgba(255, 255, 255, 0.1);
   border: none;
   border-radius: 50%;
@@ -1098,21 +1219,131 @@
   margin: 0 5px;
 }
 .Stopwatch .stopwatch-controls button img {
-  width: 22px;
+  width: 35px;
 }
 .Stopwatch .stopwatch-controls button:first-child {
-  background-color: #4CABBF;
+  background-color: #4cabbf;
 }
 .Stopwatch .stopwatch-controls button:nth-child(2) {
-  border: 1px solid #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1882352941);
 }
 .Stopwatch .stopwatch-controls button:last-child {
-  border: 1px solid #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1882352941);
 }
 .Stopwatch .stopwatch-controls button:last-child i {
-  font-size: 20px;
-  color: #2E2E2E;
+  font-size: 35px;
+  color: #2e2e2e;
   transform: rotateY(180deg);
+}
+
+.Settings {
+  background-color: var(--primary-color);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 10px;
+}
+.Settings .title-settings {
+  font-size: 40px;
+  color: var(--secondary-color);
+}
+.Settings .setting-label {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.5);
+}
+.Settings .options {
+  width: 96%;
+}
+.Settings .options .option {
+  background-color: rgba(255, 255, 255, 0.1);
+  min-height: 50px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 5px 0;
+}
+.Settings .options .option .text-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
+}
+.Settings .options .option .text-area .option-title {
+  font-size: 14px;
+  color: #fff;
+}
+.Settings .options .option .text-area .option-desc {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.507);
+}
+.Settings .options .option .change-area {
+  position: relative;
+}
+.Settings .options .option .change-area .option-dl-dis {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  color: #fff;
+  padding: 3px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.Settings .options .option .change-area .option-dl-dis img {
+  margin-left: 5px;
+  width: 15px;
+  transform: rotate(180deg);
+}
+.Settings .options .option .change-area .option-dl-dis:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.Settings .options .option .change-area .option-modes {
+  position: absolute;
+  background-color: rgba(83, 81, 84, 0.53);
+  top: 115%;
+  width: 130%;
+  left: -37%;
+  padding: 2px;
+  border-radius: 5px;
+  -webkit-backdrop-filter: blur(3px) saturate(0.5);
+          backdrop-filter: blur(3px) saturate(0.5);
+  display: none;
+}
+.Settings .options .option .change-area .option-modes li {
+  list-style: none;
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+.Settings .options .option .change-area .show-option {
+  display: block;
+}
+.Settings .about {
+  display: flex;
+  flex-direction: column;
+}
+.Settings .about span {
+  font-size: 13px;
+  color: #fff;
+  margin: 5px;
+}
+.Settings .about button {
+  font-size: 13px;
+  font-family: Poppins_Regular;
+  color: #fff;
+  width: 121px;
+  height: 43px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 html, body {
@@ -1120,6 +1351,15 @@ html, body {
   padding: 0;
   font-family: Poppins_Regular;
   outline: none;
+  --primary-color: #2e2e2e;
+  --secondary-color: #ffffff;
+  --feature-color: #4cabbf;
+  --feature-border-color: #2c6d7b;
+  --white: #fff;
+  --side-menu-hover: #ffffff1a;
+  --primary-font-color: #ffffff;
+  --secondary-font-color: rgba(255, 255, 255, 0.45);
+  --half-white: rgba(255, 255, 255, 0.5);
 }
 
 .ClockApp {

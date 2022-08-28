@@ -3,8 +3,8 @@
     @include flexcenter(column);
 
     & .runner{
-        font-size: 80px;
-        color: #fff;
+        font-size: 100px;
+        color:var(--default);
         width: 80%;
         display: flex;
         align-items: center;
@@ -34,9 +34,8 @@
 
     & .indicates{
         @include flexcenter(row);
-        width: 70%;
-        padding-right: 80px;
-        margin-top: 0;
+        width: 100%;
+        padding-left: 20px;
         justify-content: space-around;
         
         & span{
@@ -50,8 +49,8 @@
 
         margin-top: 15px;
         & button{
-            width: 50px;
-            height: 50px;
+            width: 70px;
+            height: 70px;
             background-color: rgba(255,255,255,0.1);
             border: none;
             border-radius: 50%;
@@ -59,24 +58,24 @@
             margin: 0 5px;
 
             & img{
-                width: 22px;
+                width: 35px;
             }
 
         }
 
         & button:first-child{
-            background-color: $feature-color;
+            background-color: var(--feature-color);
         }
         & button:nth-child(2){
-            border: 1px solid #fff;
+            border: 1px solid #ffffff30;
         }
 
         & button:last-child{
-            border: 1px solid #fff;
+            border: 1px solid #ffffff30;
 
             & i{
-                font-size: 20px;
-                color: $primary-color;
+                font-size: 35px;
+                color: var(--primary-color);
                 transform:rotateY(180deg);
             }
         }

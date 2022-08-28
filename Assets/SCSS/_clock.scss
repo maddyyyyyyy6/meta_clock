@@ -3,6 +3,7 @@
     @include flexcenter(column);
     font-family: Poppins_Regular;
     user-select: none;
+    color: var(--secondary-color);
 
     & .Digital-Clock {
         font-family: Poppins_Regular;
@@ -12,24 +13,24 @@
         @include flexcenter(column);
         margin-top: 50px;
         & .DayNight {
-            color: $primary-font-color;
+            color: var(--primary-font-color);
             font-size: 50px;
             user-select: none;
         }
         & .Time {
             font-size: 110px;
-            color: $primary-font-color;
+            color: var(--primary-font-color);
             transition: 0.5s;
         }
         & .Today {
             @include flexcenter(row);
             font-size: 30px;
-            color: $primary-font-color;
+            color: var(--primary-font-color);
             margin-bottom: 140px;
             & .slash {
                 width: 2px;
                 height: 45px;
-                background-color: $secondary-color;
+                background-color: var(--secondary-color);
                 margin: 0 10px;
             }
         }
@@ -49,7 +50,7 @@
 
         & .clock-circle {
             position: absolute;
-            border: 10px solid $secondary-color;
+            border: 10px solid var(--secondary-color);
             width: 250px;
             height: 250px;
             border-radius: 50%;
@@ -61,15 +62,15 @@
             // align-items: center;
 
             & span {
-                color: $feature-color;
+                color: var(--feature-color);
             }
 
             & .dot {
                 width: 15px;
                 height: 15px;
                 border-radius: 50%;
-                background-color: $secondary-color;
-                z-index: 1000;
+                background-color: var(--secondary-color);
+                z-index: 0;
             }
 
             & .clock__hour,
@@ -89,7 +90,7 @@
             & .clock__hour::before {
                 content: "";
                 position: absolute;
-                background-color: $feature-border-color;
+                background-color: var(--feature-border-color);
                 width: 0.25rem;
                 height: 3rem;
                 border-radius: 0.75rem;
@@ -104,7 +105,7 @@
             & .clock__minutes::before {
                 content: "";
                 position: absolute;
-                background-color: $feature-color;
+                background-color: var(--feature-color);
                 width: 0.25rem;
                 height: 4rem;
                 border-radius: 0.75rem;
@@ -119,7 +120,7 @@
             & .clock__seconds::before {
                 content: "";
                 position: absolute;
-                background-color: #fff;
+                background-color: var(--primary-font-color);
                 width: 0.125rem;
                 height: 5rem;
                 border-radius: 0.75rem;
@@ -129,7 +130,7 @@
             & .line {
                 width: 3px;
                 height: 30px;
-                background-color: $secondary-color;
+                background-color: var(--secondary-color);
             }
             & .num1 {
                 position: absolute;
@@ -208,7 +209,7 @@
         }
 
         & .DayNight {
-            color: $primary-font-color;
+            color: var(--primary-font-color);
             font-size: 50px;
             user-select: none;
             position: absolute;
@@ -218,20 +219,20 @@
         & .Today {
             // @include flexcenter(row);
             font-size: 30px;
-            color: $primary-font-color;
+            color: var(--primary-font-color);
             position: absolute;
             bottom: 20%;
             & .slash {
                 width: 2px;
                 height: 45px;
-                background-color: $secondary-color;
+                background-color: var(--secondary-color);
                 margin: 0 10px;
             }
         }
     }
 
     .ChangeClock {
-        border: 2px solid #fff;
+        border: 2px solid var(--primary-font-color);
         border-radius: 25px;
         width: 359px;
         height: 46px;
@@ -244,14 +245,14 @@
         & button {
             width: 50%;
             height: 40px;
-            background-color: $feature-color;
-            border: 1px solid $feature-border-color;
+            background-color: var(--feature-color);
+            border: 1px solid var(--feature-border-color);
             border-radius: 20px;
 
             font-size: 25px;
             font-family: Poppins_Regular;
             text-align: center;
-            color: $primary-color;
+            color: var(--primary-color);
             padding-bottom: 10px;
         }
     }

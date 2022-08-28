@@ -4,12 +4,37 @@
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto;
-    background-color: $primary-color;
+    background-color: var(--primary-color);
     overflow-y: auto;
     overflow-x: hidden;
     grid-row-gap: 12px;
     padding-top: 3px;
     position: relative;
+
+
+    // empty alarm content
+    & .empty-message{
+        width: 100%;
+        height: 100%;
+        @include flexcenter(column);
+        justify-content: center;
+        & h1{
+            color: var(--default);
+            font-size: 25px;
+        }
+
+        & p{
+            color: var(--default);
+            font-size: 13px;
+            margin-top: -15px;
+
+        }
+        
+
+    }
+    .hide-message{
+        display: none;
+    }
 
     // Add Alarm Form
     & .add-alarm-form{
@@ -20,8 +45,8 @@
         width: 318px;
         height:500px;
         border-radius: 7px;
-        background-color: #2E2E2E;
-        border: 0.5px solid #101010;
+        background-color: var(--primary-color);
+        border: 0.5px solid var(--border-color-form);
         transform: translate(-50%, -50%);
         font-family: Poppins_Regular;
 
@@ -29,7 +54,7 @@
 
         & .heading{
             font-size: 19px;
-            color: $secondary-color;
+            color: var(--secondary-color);
             text-align: start;
 
         }
@@ -78,16 +103,16 @@
         & .time-selector{
             width: 75%;
             height: 100px;
-            border: 1px solid #fff;
+            border: 1px solid var(--border-color-form);
             border-radius: 5px;
             font-size: 40px;
-            color: #fff;
+            color: var(--default);
             display: flex;
             align-items: center;
             justify-content: space-around;
             & span{
                 font-size: 40px;
-                color: $secondary-color;
+                color: var(--secondary-color);
                 
             
                 
@@ -181,13 +206,13 @@
             & .repeat-checkbox{
                 width: 15px;
                 height: 15px;
-                border: 1px solid #fff;
+                border: 1px solid var(--default);
                 border-radius: 3px;
             }
 
             & span{
                 font-size: 15px;
-                color: $secondary-color;
+                color: var(--secondary-color);
             }
         }
 
@@ -206,18 +231,18 @@
                 text-align: center;
                 align-items: center;
                 font-size: 15px;
-                color: #fff;
+                color: var(--default);
                 justify-content: center;
                 align-content: center;
                 margin: 0 3px;
-                border: 0.5px solid $feature-color;
+                border: 0.5px solid var(--feature-color);
 
             }
 
             .deselect{
                 background-color: transparent;
-                border: 0.5px solid $feature-color;
-                color: $feature-color;
+                border: 0.5px solid var(--feature-color);
+                color: var(--feature-color);
                 transform: scale(-0.5px);
 
             }
@@ -231,6 +256,7 @@
             justify-content: space-between;
             width: 75%;
             margin-top: 15px;
+            position: relative;
 
             & img{
                 width: 20px;
@@ -238,7 +264,7 @@
             & input{
                 height: 25px;
                 width: 200px;
-                background-color: rgb(255 255 255 / 20%);
+                background-color: rgba(104, 35, 35, 0.2);
                 border: 0.5px solid #707070;
                 border-radius: 5px;
                 font-size: 18px;
@@ -252,6 +278,46 @@
 
                 }
             }
+
+            & .select-tune{
+                font-size: 18px;
+                background: var(--alarm-input-bg);
+                width: 86%;
+                border-radius: 5px;
+                align-items: center;
+                text-align: center;
+                cursor: pointer;
+            }
+
+            & .tunes{
+                z-index: 2;
+                font-size: 15px;
+                position: absolute;
+                top: 34px;
+                left: 14%;
+                background: #fff;
+                width: 86%;
+                border: 1px solid var(--border-color-form);
+                border-radius: 5px;
+                display: none;
+
+                & li {
+                    list-style: none;
+                    text-align: center;
+                    cursor: pointer;
+
+                    &:hover{
+                        background: rgba(0, 0, 0, 0.2);
+
+                    }
+                }
+                
+            }
+            & .active{
+                display: block;
+            }
+
+            
         }
 
         // snooze time select
@@ -262,26 +328,49 @@
             justify-content: space-between;
             width: 75%;
             margin-top: 15px;
+            position: relative;
 
             & img{
                 width: 20px;
             }
-            & input{
-                height: 25px;
-                width: 200px;
-                background-color: rgb(255 255 255 / 20%);
-                border: 0.5px solid #707070;
-                border-radius: 5px;
+            
+
+            & .select-snooze{
                 font-size: 18px;
-                font-family: 'Poppins_Regular';
-                color: #a5a3a3;
-                outline: none;
-                &::placeholder{
-                    font-family: 'Poppins_Regular';
-                    color: #a5a3a3;
+                background: var(--alarm-input-bg);
+                width: 86%;
+                border-radius: 5px;
+                align-items: center;
+                text-align: center;
+                cursor: pointer;
+            }
 
+            & .snoozes{
+                font-size: 15px;
+                position: absolute;
+                top: -100px;
+                left: 14%;
+                background: #fff;
+                border: 1px solid var(--border-color-form);
+                width: 86%;
+                border-radius: 5px;
+                display: none;
+
+
+                & li {
+                    list-style: none;
+                    text-align: center;
+                    cursor: pointer;
+
+                    &:hover{
+                        background: rgba(0, 0, 0, 0.2);
+
+                    }
                 }
-
+                
+            }
+            & .active{
+                display: block;
             }
         }
 
@@ -294,18 +383,18 @@
                 font-family: 'Poppins_Regular';
                 width: 124px;
                 height: 32px;
-                background-color: $primary-color;
+                background-color: var(--primary-color);
                 border: 2px solid #3B3B3B;
                 border-radius: 5px;
-                color: $secondary-color;
+                color: var(--secondary-color);
                 margin: 0 5px;
 
 
             }
             & button:first-child{
-                color: $primary-color;
-                background-color: $feature-color;
-                border-color: $feature-border-color;
+                color: var(--primary-color);
+                background-color: var(--feature-color);
+                border-color: var(--feature-border-color);
             }
         }
         
@@ -345,13 +434,13 @@
         margin: 0 10px;
         margin-right: 10px;
         border-radius: 10px;
-        background-color: #3B3B3B;
+        background-color: var(--alarm-add-form-bg);
         display: flex;
         flex-direction: column;
 
         & .alarm-time{
             font-size: 90px;
-            color: $secondary-color;
+            color: var(--secondary-color);
             text-align: center;
         }
 
@@ -371,7 +460,7 @@
             & .switch{
                 width: 53px;
                 height: 26px;
-                border: 2px solid #fff;
+                border: 2px solid var(--default);
                 border-radius: 18px;
                 position: relative;
                 & .nob{
@@ -422,17 +511,49 @@
                 justify-content: center;
                 align-content: center;
                 margin: 0 3px;
-                border: 0.5px solid $feature-color;
+                border: 0.5px solid var(--feature-color);
 
             }
 
             .deselect{
                 background-color: transparent;
-                border: 0.5px solid $feature-color;
-                color: $feature-color;
+                border: 0.5px solid var(--feature-color);
+                color: var(--feature-color);
                 transform: scale(-0.5px);
 
             }
         }
+
+        & .delete-controls{
+            display: flex;
+            align-items:flex-start;
+            justify-content: end;
+
+            & button{
+                margin: 0 7px;
+                width: 45px;
+                height: 33px;
+                background-color: transparent;
+                border: none;
+                outline: none;
+                border-radius: 5px;
+                cursor: pointer;
+                & i{
+                    font-size: 20px;
+                    color: rgb(237, 112, 112);
+                }
+                &:hover{
+                    background-color: rgba(255, 255, 255, 0.2);
+
+                }
+            }
+
+            
+        }
+        
     }
+}
+
+.hide-btn{
+    display: none;
 }

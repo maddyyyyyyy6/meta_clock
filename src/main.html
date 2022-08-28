@@ -1,177 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="../Assets/CSS/main.css" />
     <link rel="stylesheet" href="../Assets/Icons/fontawesome/css/all.css" />
     <title>Clock</title>
-</head>
+  </head>
 
-<body>
+  <body class="dark_theme">
     <div class="ClockApp">
-        <div class="TitleBar">
-            <div id="hamburger-menu" class="HamburgerMenu">
-                <i class="fas fa-bars"></i>
-            </div>
-            <div class="IconandName">
-                <div id="title" class="title"></div>
-            </div>
-            <div class="TitleBarButtons">
-                <button id="minimize-button" class="title-bar-button minimize-button">
-                    <img src="../Assets/Icons/title-bar-icons/subtract-1.png" alt="" />
-                </button>
-                <button id="maximize-button" class="title-bar-button maximize-button">
-                    <img class="max" src="../Assets/Icons/title-bar-icons/square-1.png" alt="" />
-                </button>
-                <button id="close-button" class="title-bar-button close-button">
-                    <img src="../Assets/Icons/title-bar-icons/cross-1.png" alt="" />
-                </button>
-            </div>
+      <div class="TitleBar">
+        <div id="hamburger-menu" class="HamburgerMenu">
+          <i class="fas fa-bars"></i>
         </div>
-        <!-- AppScreen -->
-        <div class="AppScreen">
-            <div id="side-menu" class="side-menu">
-                <ul>
-                    <li id="Clock-side-menu">Clock</li>
-                    <li id="Alarm-side-menu">Alarm</li>
-                    <li id="Timer-side-menu">Timer</li>
-                    <li id="Stopwatch-side-menu">Stopwatch</li>
-                </ul>
+        <div class="IconandName">
+          <div id="title" class="title"></div>
+        </div>
+        <div class="TitleBarButtons">
+          <button id="minimize-button" class="title-bar-button minimize-button">
+            <img src="../Assets/Icons/title-bar-icons/subtract-1.png" alt="" />
+          </button>
+          <button id="maximize-button" class="title-bar-button maximize-button">
+            <img
+              class="max"
+              src="../Assets/Icons/title-bar-icons/square-1.png"
+              alt=""
+            />
+          </button>
+          <button id="close-button" class="title-bar-button close-button">
+            <img src="../Assets/Icons/title-bar-icons/cross-1.png" alt="" />
+          </button>
+        </div>
+      </div>
+      <!-- AppScreen -->
+      <div class="AppScreen">
+        <div id="side-menu" class="side-menu">
+          <ul>
+            <li id="Clock-side-menu">Clock</li>
+            <li id="Alarm-side-menu">Alarm</li>
+            <li id="Timer-side-menu">Timer</li>
+            <li id="Stopwatch-side-menu">Stopwatch</li>
+          </ul>
 
-                <li>Settings</li>
+          <li id="Settings-menu">Settings</li>
+        </div>
+
+        <!-- Code for Splash Screen -->
+        <div id="splash-screen" class="splash-screen">
+          <div class="Name">Clock</div>
+          <div class="author">by TonyCoder</div>
+        </div>
+
+        <!-- Code for Simple Clock(Digital/Analog) -->
+        <div id="Clock" class="Clock">
+          <div id="digital-view" class="Digital-Clock">
+            <div id="DayNight" class="DayNight"></div>
+            <div id="time-screen" class="Time">00:00:00</div>
+            <div class="Today">
+              <div id="date"></div>
+              <div class="slash"></div>
+              <div id="day" class="day">Friday</div>
+            </div>
+          </div>
+          <div id="analog-view" class="Analog-Clock hide">
+            <div id="analog-DayNight" class="DayNight hide">
+              Daytime <i class="far fa-sun"></i>
+            </div>
+            <div id="clock-circle" class="clock-circle flex hide">
+              <span class="num12">12</span>
+              <span class="num3">3</span>
+              <span class="num6">6</span>
+              <span class="num9">9</span>
+              <span class="line num1"></span>
+              <span class="line num2"></span>
+              <span class="line num4"></span>
+              <span class="line num5"></span>
+              <span class="line num7"></span>
+              <span class="line num8"></span>
+              <span class="line num10"></span>
+              <span class="line num11"></span>
+
+              <div class="clock__hour" id="clock-hour"></div>
+              <div class="clock__minutes" id="clock-minutes"></div>
+              <div class="clock__seconds" id="clock-seconds"></div>
+
+              <span class="dot"></span>
+            </div>
+            <div id="Analog-Today-view" class="Today flex hide">
+              <div id="analog-date">12 Aug 22</div>
+              <div class="slash"></div>
+              <div id="analog-day" class="day">Friday</div>
+            </div>
+          </div>
+          <!-- Changing Button Toggle -->
+          <div id="Change-clock-btn" class="ChangeClock hidebtn">
+            <button id="Digital">Digital</button>
+            <button id="Analog" class="invisible">Analog</button>
+          </div>
+        </div>
+
+        <!-- Code for Alarm -->
+        <div id="Alarm" class="Alarm hidden">
+          <div id="empty-message" class="empty-message">
+            <h1>You don't have any alarms.</h1>
+            <p>Select "+" below to add a new alarm</p>
+          </div>
+          <div class="addButton">
+            <button id="edit-alarm">
+              <img src="../Assets/Icons/pencil.png" alt="" />
+            </button>
+            <button id="add-alarm">
+              <img src="../Assets/Icons/plus.png" alt="" />
+            </button>
+          </div>
+          <div id="add-alarm-form" class="add-alarm-form hide-menu">
+            <div class="heading">Add new alarm</div>
+            <!-- add time -->
+            <div class="upbuttons">
+              <button id="hour-up">
+                <img src="../Assets/Icons/up-arrow.png" alt="" />
+              </button>
+              <button id="minute-up">
+                <img src="../Assets/Icons/up-arrow.png" alt="" />
+              </button>
+              <button id="ampm-up">
+                <img src="../Assets/Icons/up-arrow.png" alt="" />
+              </button>
+            </div>
+            <div class="time-selector">
+              <span id="hour">00</span>: <span id="minute">00</span>:
+              <span id="ampm">AM</span>
+            </div>
+            <div class="downbuttons">
+              <button id="hour-down">
+                <img src="../Assets/Icons/up-arrow.png" alt="" />
+              </button>
+              <button id="minute-down">
+                <img src="../Assets/Icons/up-arrow.png" alt="" />
+              </button>
+              <button id="ampm-down">
+                <img src="../Assets/Icons/up-arrow.png" alt="" />
+              </button>
             </div>
 
-            <!-- Code for Splash Screen -->
-            <div id="splash-screen" class="splash-screen">
-                <div class="Name">Clock</div>
-                <div class="author">by TonyCoder</div>
+            <!-- code for label input -->
+            <div class="alarm-label-input">
+              <img src="../Assets/Icons/create.png" alt="" />
+              <input id="label-alarm" type="text" placeholder="Alarm Name" />
+            </div>
+            <div class="alarm-repeat-controls">
+              <div class="repeat-checkbox"></div>
+              <span>Repeat alarm</span>
+            </div>
+            <!-- repeat days -->
+            <div class="repeatation">
+              <span class="btnday deselect">Sun</span>
+              <span class="btnday deselect">M</span>
+              <span class="btnday deselect">Tu</span>
+              <span class="btnday deselect">We</span>
+              <span class="btnday deselect">Th</span>
+              <span class="btnday deselect">Fri</span>
+              <span class="btnday deselect">Sa</span>
+            </div>
+            <!-- tune select -->
+            <div class="alarm-tune-input">
+              <img src="../Assets/Icons/tune.png" alt="" />
+
+              <!-- <input id="tune" type="text" placeholder="Tune Name"> -->
+              <div id="select-tune-btn" class="select-tune">select tune</div>
+              <div id="tunes" class="tunes">
+                <li class="tune">Beep Beep</li>
+                <li class="tune">Morning Vibes</li>
+                <li class="tune">Rock</li>
+                <li class="tune">tick tick</li>
+              </div>
+            </div>
+            <!-- snooze time select -->
+            <div class="alarm-snooze-input">
+              <img src="../Assets/Icons/snooze.png" alt="" />
+              <div id="select-snooze-btn" class="select-snooze">
+                Snooze time
+              </div>
+              <div id="snoozes" class="snoozes">
+                <li class="snooze-time">5 min</li>
+                <li class="snooze-time">10 min</li>
+                <li class="snooze-time">15 min</li>
+                <li class="snooze-time">20 min</li>
+              </div>
             </div>
 
-            <!-- Code for Simple Clock(Digital/Analog) -->
-            <div id="Clock" class="Clock">
-                <div id="digital-view" class="Digital-Clock">
-                    <div id="DayNight" class="DayNight">
-                    </div>
-                    <div id="time-screen" class="Time">00:00:00</div>
-                    <div class="Today">
-                        <div id="date"></div>
-                        <div class="slash"></div>
-                        <div id="day" class="day">Friday</div>
-                    </div>
-                    
-                </div>
-                <div id="analog-view" class="Analog-Clock hide">
-                    <div id="analog-DayNight" class="DayNight hide">
-                        Daytime <i class="far fa-sun"></i>
-                    </div>
-                    <div id="clock-circle" class="clock-circle flex hide">
-                        <span class="num12">12</span>
-                        <span class="num3">3</span>
-                        <span class="num6">6</span>
-                        <span class="num9">9</span>
-                        <span class="line num1"></span>
-                        <span class="line num2"></span>
-                        <span class="line num4"></span>
-                        <span class="line num5"></span>
-                        <span class="line num7"></span>
-                        <span class="line num8"></span>
-                        <span class="line num10"></span>
-                        <span class="line num11"></span>
-
-
-                        <div class="clock__hour" id="clock-hour"></div>
-                        <div class="clock__minutes" id="clock-minutes"></div>
-                        <div class="clock__seconds" id="clock-seconds"></div>
-
-
-                        <span class="dot"></span>
-                    
-                    </div>        
-                    <div id="Analog-Today-view" class="Today flex hide">
-                        <div id="analog-date">12 Aug 22</div>
-                        <div class="slash"></div>
-                        <div id="analog-day" class="day">Friday</div>
-                    </div>
-                    
-                    
-                </div>
-                <!-- Changing Button Toggle -->
-                <div id="Change-clock-btn" class="ChangeClock hidebtn">
-                    <button id="Digital">Digital</button>
-                    <button id="Analog" class="invisible">Analog</button>
-                </div>
-
+            <!-- save alarm cancel buttons -->
+            <div class="buttons">
+              <button id="save-alarm">Save</button>
+              <button id="cancel-add-alarm">Cancel</button>
             </div>
-
-            <!-- Code for Alarm -->
-            <div id="Alarm" class="Alarm hidden">
-                <div  class="addButton">
-                    <button ><img src="../Assets/Icons/pencil.png" alt=""></button>
-                    <button id="add-alarm"><img src="../Assets/Icons/plus.png" alt=""></button>
-
-                </div>
-                <div id="add-alarm-form" class="add-alarm-form hide-menu">
-                    <div class="heading">
-                        Add new alarm
-                    </div>
-                    <!-- add time -->
-                    <div class="upbuttons">
-                        <button id="hour-up"><img src="../Assets/Icons/up-arrow.png" alt=""></button>
-                        <button id="minute-up"><img src="../Assets/Icons/up-arrow.png" alt=""></button>
-                        <button id="ampm-up"><img src="../Assets/Icons/up-arrow.png" alt=""></button>
-                    </div>
-                    <div class="time-selector">
-                        <span id="hour">00</span>:
-                        <span id="minute">00</span>:
-                        <span id="ampm">AM</span>
-                    </div>
-                    <div class="downbuttons">
-                        <button id="hour-down"><img src="../Assets/Icons/up-arrow.png" alt=""></button>
-                        <button id="minute-down"><img src="../Assets/Icons/up-arrow.png" alt=""></button>
-                        <button id="ampm-down"><img src="../Assets/Icons/up-arrow.png" alt=""></button>
-                    </div>
-
-                    <!-- code for label input -->
-                    <div class="alarm-label-input">
-                        <img src="../Assets/Icons/create.png" alt="">
-                        <input id="label-alarm" type="text" placeholder="Alarm Name">
-
-                    </div>
-                    <div class="alarm-repeat-controls">
-                        <div class="repeat-checkbox"></div>
-                        <span>Repeat alarm</span>
-                    </div>
-                    <div class="repeatation">
-                        <span class="btnday deselect">Sun</span>
-                        <span class="btnday deselect">M</span>
-                        <span class="btnday deselect">Tu</span>
-                        <span class="btnday deselect">We</span>
-                        <span class="btnday deselect">Th</span>
-                        <span class="btnday deselect">Fri</span>
-                        <span class="btnday deselect">Sa</span>
-                    </div>
-                    <!-- tune select -->
-                    <div class="alarm-tune-input">
-                        <img src="../Assets/Icons/tune.png" alt="">
-                        <input type="text" placeholder="Tune Name">
-
-                    </div>
-                    <!-- snooze time select -->
-                    <div class="alarm-snooze-input">
-                        <img src="../Assets/Icons/snooze.png" alt="">
-                        <input type="text" placeholder="Snooze time">
-
-                    </div>
-
-                    <!-- save alarm cancel buttons -->
-                    <div class="buttons">
-                        <button id="save-alarm">Save</button>
-                        <button id="cancel-add-alarm">Cancel</button>
-                    </div>
-                </div>
-                <!-- <!-- <div id="alarm-box" class="alarm-box">
+          </div>
+          <!-- <div id="alarm-box" class="alarm-box">
                     <div class="alarm-time">07:00</div>
+                    
                     <div class="alarm-controls">
                         <div class="alarm-label">
                             Good Morning
@@ -189,106 +215,131 @@
                         <span class="btnday deselect">Fri</span>
                         <span class="btnday deselect">Sa</span>
                     </div>
-
-                </div> -->
-                <!-- <div id="alarm-box" class="alarm-box">
-                    <div class="alarm-time">07:00</div>
-                    <div class="alarm-controls">
-                        <div class="alarm-label">
-                            Good Morning
-                        </div>
-                        <div class="switch">
-                            <div id="nob" class="nob"></div>
-                        </div>
-                    </div>
-                    <div class="repeatation">
-                        <span class="btnday deselect">Sun</span>
-                        <span class="btnday deselect">M</span>
-                        <span class="btnday deselect">Tu</span>
-                        <span class="btnday deselect">We</span>
-                        <span class="btnday deselect">Th</span>
-                        <span class="btnday deselect">Fri</span>
-                        <span class="btnday deselect">Sa</span>
-                    </div>
-
-                </div>
-                <div id="alarm-box" class="alarm-box">
-                    <div class="alarm-time">07:00</div>
-                    <div class="alarm-controls">
-                        <div class="alarm-label">
-                            Good Morning
-                        </div>
-                        <div id="switch" class="switch">
-                            <div id="nob" class="nob"></div>
-                        </div>
-                    </div>
-                    <div class="repeatation">
-                        <span class="btnday deselect">Sun</span>
-                        <span class="btnday deselect">M</span>
-                        <span class="btnday deselect">Tu</span>
-                        <span class="btnday deselect">We</span>
-                        <span class="btnday deselect">Th</span>
-                        <span class="btnday deselect">Fri</span>
-                        <span class="btnday deselect">Sa</span>
+                    <div class="delete-controls">
+                        <button class="delete-alarm">
+                            <i class="fas fa-trash"></i>
+                        </button>
                     </div>
 
                 </div> -->
-                
-                
-            </div>
+        </div>
 
-            <!-- Code for Timer -->
-            <div id="Timer" class="Timer hidden">
-                <div id="timer-box" class="timer-box">
-                    <div class="label_controls">
-                        <span class="label">
-                            Meditations
-                        </span>
-                        <!-- <div class="controls">
+        <!-- Code for Timer -->
+        <div id="Timer" class="Timer hidden">
+          <div class="empty-message">
+            <h1>You don't have any alarms.</h1>
+            <p>Select "+" below to add a new alarm</p>
+          </div>
+          <div id="timer-box" class="timer-box">
+            <div class="label_controls">
+              <span class="label"> Meditations </span>
+              <!-- <div class="controls">
                             <button id="maximize"></button>
                             <button id="minimize"></button>
                         </div> -->
-                    </div>
-                    <!-- Circle Pattern -->
-                    <div class="circle">
-                        <div class="timer-value">00:10:00</div>
-                    </div>
+            </div>
+            <!-- Circle Pattern -->
+            <div class="circle">
+              <div class="timer-value">00:10:00</div>
+            </div>
 
-                    <!-- timer controls -->
-                    <!-- stop
+            <!-- timer controls -->
+            <!-- stop
                         reset -->
 
-                    <div class="timer-controls">
-                        <button><img src="../Assets/Icons/play-dark.png" alt=""></button>
-                        <button><i class="fas fa-redo"></i></button>
-                    </div>
-
-
-                </div>
+            <div class="timer-controls">
+              <button>
+                <img src="../Assets/Icons/play-dark.png" alt="" />
+              </button>
+              <button><i class="fas fa-redo"></i></button>
             </div>
-
-            <!-- Code for StopWatch -->
-            <div id="Stopwatch" class="Stopwatch">
-                <div id="runner" class="runner">
-                    <div class="hours" id="hours">00</div><span>:</span>
-                    <div class="minutes" id="minutes">00</div><span>:</span>
-                    <div class="seconds" id="seconds">00</div><span>.</span>
-                    <div class="milli-secs" id="milli-secs">00</div>
-                </div>
-                <div class="indicates">
-                    <span>hr</span>
-                    <span>min</span>
-                    <span>sec</span>
-                </div>
-                <div class="stopwatch-controls">
-                    <button id="run"><img src="../Assets/Icons/play-dark.png" alt=""></button>
-                    <button id="stop"><img src="../Assets/Icons/flag-dark.png" alt=""></button>
-                    <button id="reset-watch"><i class="fas fa-redo"></i></button>
-                </div>
-
-            </div>
-
+          </div>
         </div>
+
+        <!-- Code for StopWatch -->
+        <div id="Stopwatch" class="Stopwatch hidden">
+          <div id="runner" class="runner">
+            <div class="hours" id="hours">00</div>
+            <span>:</span>
+            <div class="minutes" id="minutes">00</div>
+            <span>:</span>
+            <div class="seconds" id="seconds">00</div>
+            <span>.</span>
+            <div class="milli-secs" id="milli-secs">00</div>
+          </div>
+          <div class="indicates">
+            <span>hr</span>
+            <span>min</span>
+            <span>sec</span>
+          </div>
+          <div class="stopwatch-controls">
+            <button id="run">
+              <img src="../Assets/Icons/play-dark.png" alt="" />
+            </button>
+            <button id="stop">
+              <img src="../Assets/Icons/flag-dark.png" alt="" />
+            </button>
+            <button id="reset-watch"><i class="fas fa-redo"></i></button>
+          </div>
+        </div>
+
+        <!-- Code for Settings -->
+        <div id="Settings" class="Settings hidden">
+          <div class="title-settings">Settings</div>
+
+          <!-- settings label -->
+          <!-- general -->
+
+          <span class="setting-label">General</span>
+          <div class="options">
+            <!-- color change -->
+            <div class="option">
+              <div class="text-area">
+                <span class="option-title">App theme</span>
+                <span class="option-desc"
+                  >Select which app theme to display</span
+                >
+              </div>
+
+              <div class="change-area">
+                <div id="color-mode-changer" class="option-dl-dis">
+                  <span>theme</span>
+                  <img src="../Assets/Icons/up-arrow.png" alt="" />
+                </div>
+                <div id="color-modes" class="option-modes">
+                  <li class="color_mode">Dark</li>
+                  <li class="color_mode">Light</li>
+                </div>
+              </div>
+            </div>
+            <!-- notification -->
+            <div class="option">
+              <div class="text-area">
+                <span class="option-title">Notifications</span>
+                <span class="option-desc"
+                  >Modify your notification settings</span
+                >
+              </div>
+
+              <div class="change-area">
+                <div class="option-dl-dis">
+                  Change Settings
+                  <img src="../Assets/Icons/up-arrow.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- about section -->
+          <div class="about">
+            <span>About this app</span>
+            <span>Clock 1.0.1</span>
+            <span>©2022 TonyCoder. All rights are reserved</span>
+            <button>Send feedback</button>
+          </div>
+        </div>
+      </div>
+      <audio class="beep" src="../Assets/Audio/iphone_pink.mp3"></audio>
     </div>
     <script src="./JS/TitleBar.js"></script>
     <script src="./JS/Splash_Screen.js"></script>
@@ -297,7 +348,6 @@
     <script src="./JS/Analog.js"></script>
     <script src="./JS/Alarm.js"></script>
     <script src="./JS/Stopwatch.js"></script>
-
-</body>
-
+    <script src="./JS/Settings.js"></script>
+  </body>
 </html>

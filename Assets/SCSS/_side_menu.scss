@@ -1,4 +1,4 @@
-.side-menu{
+.side-menu {
     height: 100vh;
     /* width: 300px; */
     background-color: #262626bf;
@@ -6,15 +6,15 @@
     top: 0;
     left: 0;
     z-index: 1;
-    max-width: 300px;    
+    max-width: 300px;
     border-right: 0.1px solid #707070;
     width: 0px;
     overflow: hidden;
     @include flexcenter(column);
     justify-content: space-between;
     backdrop-filter: blur(21px) saturate(2.5);
-    transition: width 0.2s ease-in;
-    
+    transition: width 0.2s ease-out;
+
     // &:hover{
     //     background-color: #fff;
     //     width: 0px;
@@ -28,13 +28,14 @@
         margin-top: 25px;
         padding-left: 0px;
 
-        & li{
+        & li {
             margin: 5px 0;
             border-radius: 5px;
             padding: 8px 0;
             padding-left: 29px;
             cursor: pointer;
-            &::before{
+
+            &::before {
                 transition: all 0.5s;
                 content: "";
                 position: absolute;
@@ -43,28 +44,26 @@
                 height: 0px;
                 border-radius: 5px;
                 left: 3%;
-                background-color: $feature-color;
+                background-color: var(--feature-color);
                 transform: translateY(-50%);
             }
-            &:hover::before{
+
+            &:hover::before {
                 height: 20px;
                 transform: translateY(0%);
-
-
-    
-                
             }
 
-            
+
 
         }
-        & li:hover{
-            background-color: $side-menu-hover;
+
+        & li:hover {
+            background-color: var(--side-menu-hover);
         }
-        
+
     }
 
-    & > li{
+    &>li {
         width: 86%;
         font-size: 20px;
         color: #fff;
@@ -75,26 +74,28 @@
         border-radius: 5px;
         cursor: pointer;
         transition: all 0.5s;
-        &::before{
+
+        &::before {
             content: "";
             position: absolute;
             width: 5px;
             height: 0px;
             border-radius: 5px;
             left: 5%;
-            background-color: $feature-color;
+            background-color: var(--feature-color);
 
         }
-        &:hover::before{
+
+        &:hover::before {
             height: 30px;
 
 
-            
+
         }
 
-        
-        &:hover{
-            background-color: $side-menu-hover;
+
+        &:hover {
+            background-color: var(--side-menu-hover);
         }
 
     }
@@ -103,6 +104,6 @@
 }
 
 
-.show{
+.show {
     width: 300px;
 }

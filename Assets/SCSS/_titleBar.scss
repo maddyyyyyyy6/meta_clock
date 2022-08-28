@@ -6,7 +6,7 @@
     justify-content: space-between;
     width: 100%;
     height: 30px;
-    background-color: $primary-color;
+    background-color: var(--primary-color);
     -webkit-app-region:drag;
 
     & .HamburgerMenu{
@@ -14,7 +14,7 @@
         -webkit-app-region:none;
         cursor: pointer;
         & i{
-            color: #fff;
+            color: var(--primary-font-color);
         }
         color: #fff;
         margin-left: 10px;
@@ -28,7 +28,7 @@
 
         & button{
             margin: 0 5px;
-            background-color: $primary-color;
+            background-color: var(--primary-color);
             border: none;
             align-items: center;
 

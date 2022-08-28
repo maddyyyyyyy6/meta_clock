@@ -29,7 +29,7 @@
         & .circle{
             width: 150px;
             height: 150px;
-            border: 10px solid $half-white;
+            border: 10px solid var)--half-white;
             border-radius:50%;
             @include flexcenter(row);
             color: #000;
@@ -47,7 +47,7 @@
             & button{
                 width: 40px;
                 height: 40px;
-                background-color: $half-white;
+                background-color: var)--half-white;
                 border: none;
                 border-radius: 50%;
                 @include flexcenter(row);
@@ -60,15 +60,15 @@
             }
 
             & button:first-child{
-                background-color: $feature-color;
+                background-color: var)--feature-color;
             }
             & button:last-child{
-                background-color: $half-white;
+                background-color: var)--half-white;
                 border: 1px solid #fff;
 
                 & i{
                     font-size: 20px;
-                    color: $primary-color;
+                    color: var)--primary-color;
                     transform:rotateY(180deg);
                 }
             }

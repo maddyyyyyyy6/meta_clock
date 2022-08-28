@@ -1,21 +1,89 @@
+// // Dark Mode Colors
 
-// Dark Mode Colors
+$primary-color: #2e2e2e;
+$secondary-color: #ffffff;
+$feature-color: #4cabbf;
+$feature-border-color: #2c6d7b;
 
-$primary-color:#2E2E2E;
-$secondary-color:#ffffff;
-$feature-color:#4CABBF;
-$feature-border-color:#2C6D7B;
+$white: #fff;
 
+$side-menu-hover: #ffffff1a;
 
+//text
+$primary-font-color: #ffffff;
+$secondary-font-color: rgba(255, 255, 255, 0.45);
 
-$side-menu-hover:#ffffff1a;
+// $primary-font-color:rgba(255,255,255,0.45);
+// $primary-font-color:rgba(255,255,255,0.45);
+// $secondary-font-color:#FFFFFF;
+
+$half-white: rgba(255, 255, 255, 0.5);
+
+// Light Mode
+
+// $primary-color:#ffffff;
+// $secondary-color:#2E2E2E;
+// $feature-color:#4CABBF;
+// $feature-border-color:#2C6D7B;
+
+// $white:#fff;
+
+// $side-menu-hover:#ffffff1a;
+
+//         //text
+//         // $primary-font-color:#FFFFFF;
+//         // $secondary-font-color:rgba(255,255,255,0.45);
+
+//         $primary-font:rgba(255,255,255,0.45);
+//         $primary-font-color:#2E2E2E;
+//         // $secondary-font-color:#FFFFFF;
+
+// $half-white: rgba(255,255,255,0.5);
+
+// $secondary-font-color:rgba(0,0,0,0.8);
+
+.Light_mode {
+        $primary-color: #ffffff;
+        $secondary-color: #2e2e2e;
+        $feature-color: #4cabbf;
+        $feature-border-color: #2c6d7b;
+
+        $white: #fff;
+
+        $side-menu-hover: #ffffff1a;
 
         //text
-        $primary-font-color:#FFFFFF;
-        $secondary-font-color:rgba(255,255,255,0.45);
-        
+        // $primary-font-color:#FFFFFF;
+        // $secondary-font-color:rgba(255,255,255,0.45);
 
+        $primary-font: rgba(255, 255, 255, 0.45);
+        $primary-font-color: #2e2e2e;
+        // $secondary-font-color:#FFFFFF;
 
+        $half-white: rgba(255, 255, 255, 0.5);
 
-$half-white: rgba(255,255,255,0.5);
-    
+        $secondary-font-color: rgba(0, 0, 0, 0.8);
+}
+
+@mixin Theme($theme) {
+
+        --primary-color:$feature-border-color;
+        $primary-color: #2e2e2e;
+        $secondary-color: #ffffff;
+        $feature-color: #4cabbf;
+        $feature-border-color: #2c6d7b;
+
+        $white: #fff;
+
+        $side-menu-hover: #ffffff1a;
+
+        //text
+        $primary-font-color: #ffffff;
+        $secondary-font-color: rgba(255, 255, 255, 0.45);
+
+        // $primary-font-color:rgba(255,255,255,0.45);
+        // $primary-font-color:rgba(255,255,255,0.45);
+        // $secondary-font-color:#FFFFFF;
+
+        $half-white: rgba(255, 255, 255, 0.5);
+}
