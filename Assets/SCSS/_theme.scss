@@ -1,5 +1,5 @@
 
-.dark-theme {
+.dark_theme {
     --primary-color: #2e2e2e;
     --secondary-color: #ffffff;
     --feature-color: #4cabbf;
@@ -13,6 +13,13 @@
     --alarm-input-bg:#fff;
     --alarm-add-form-bg:#3B3B3B;
     --alarm-label-color:rgb(255 255 255 /50%);
+
+    // settings theme
+
+    --settings-option-bg:rgba(255, 255, 255, 0.3);
+    // side menu
+
+    --sidemenu-bg:#262626bf;
 }
 
 .light_theme {
@@ -29,6 +36,14 @@
     --alarm-input-bg:rgb(255, 255, 255);
     --alarm-add-form-bg:#bdbdbd;
     --alarm-label-color:rgba(0, 0, 0, 0.5);
+
+    // settings theme
+
+    --settings-option-bg:rgb(158, 152, 152);
+    // side menu
+
+    --sidemenu-bg:rgb(165 165 165 / 59%);
+
 
 
 

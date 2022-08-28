@@ -18,7 +18,7 @@
   font-family: Poppins_Light;
   src: url("../Fonts/Poppins-Light.ttf");
 }
-.dark-theme {
+.dark_theme {
   --primary-color: #2e2e2e;
   --secondary-color: #ffffff;
   --feature-color: #4cabbf;
@@ -32,6 +32,8 @@
   --alarm-input-bg:#fff;
   --alarm-add-form-bg:#3B3B3B;
   --alarm-label-color:rgb(255 255 255 /50%);
+  --settings-option-bg:rgba(255, 255, 255, 0.3);
+  --sidemenu-bg:#262626bf;
 }
 
 .light_theme {
@@ -48,8 +50,31 @@
   --alarm-input-bg:rgb(255, 255, 255);
   --alarm-add-form-bg:#bdbdbd;
   --alarm-label-color:rgba(0, 0, 0, 0.5);
+  --settings-option-bg:rgb(158, 152, 152);
+  --sidemenu-bg:rgb(165 165 165 / 59%);
 }
 
+@-webkit-keyframes settings_welcome {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes settings_welcome {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 .invisible {
   visibility: hidden;
 }
@@ -57,7 +82,7 @@
 .side-menu {
   height: 100vh;
   /* width: 300px; */
-  background-color: rgba(38, 38, 38, 0.7490196078);
+  background-color: var(--sidemenu-bg);
   position: absolute;
   top: 0;
   left: 0;
@@ -1109,7 +1134,7 @@
 .Timer .timer-box .circle {
   width: 150px;
   height: 150px;
-  border: 10px solid rgba(255, 255, 255, 0.5);
+  border: 10px solid var(--half-white);
   border-radius: 50%;
   display: flex;
   flex-direction: row;
@@ -1131,7 +1156,7 @@
 .Timer .timer-box .timer-controls button {
   width: 40px;
   height: 40px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: var(--half-white);
   border: none;
   border-radius: 50%;
   display: flex;
@@ -1144,15 +1169,15 @@
   width: 18px;
 }
 .Timer .timer-box .timer-controls button:first-child {
-  background-color: #4cabbf;
+  background-color: var(--feature-color);
 }
 .Timer .timer-box .timer-controls button:last-child {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: var(--half-white);
   border: 1px solid #fff;
 }
 .Timer .timer-box .timer-controls button:last-child i {
   font-size: 20px;
-  color: #2e2e2e;
+  color: var(--primary-color);
   transform: rotateY(180deg);
 }
 
@@ -1222,7 +1247,7 @@
   width: 35px;
 }
 .Stopwatch .stopwatch-controls button:first-child {
-  background-color: #4cabbf;
+  background-color: var(--feature-color);
 }
 .Stopwatch .stopwatch-controls button:nth-child(2) {
   border: 1px solid rgba(255, 255, 255, 0.1882352941);
@@ -1232,7 +1257,7 @@
 }
 .Stopwatch .stopwatch-controls button:last-child i {
   font-size: 35px;
-  color: #2e2e2e;
+  color: var(--primary-color);
   transform: rotateY(180deg);
 }
 
@@ -1247,18 +1272,18 @@
   padding: 0 10px;
 }
 .Settings .title-settings {
-  font-size: 40px;
+  font-size: 50px;
   color: var(--secondary-color);
 }
 .Settings .setting-label {
   font-size: 20px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--secondary-color);
 }
 .Settings .options {
   width: 96%;
 }
 .Settings .options .option {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--settings-option-bg);
   min-height: 50px;
   border-radius: 5px;
   display: flex;
@@ -1332,7 +1357,7 @@
 }
 .Settings .about span {
   font-size: 13px;
-  color: #fff;
+  color: var(--default);
   margin: 5px;
 }
 .Settings .about button {
@@ -1351,15 +1376,6 @@ html, body {
   padding: 0;
   font-family: Poppins_Regular;
   outline: none;
-  --primary-color: #2e2e2e;
-  --secondary-color: #ffffff;
-  --feature-color: #4cabbf;
-  --feature-border-color: #2c6d7b;
-  --white: #fff;
-  --side-menu-hover: #ffffff1a;
-  --primary-font-color: #ffffff;
-  --secondary-font-color: rgba(255, 255, 255, 0.45);
-  --half-white: rgba(255, 255, 255, 0.5);
 }
 
 .ClockApp {

@@ -1,6 +1,6 @@
 @import 'fonts';
 @import 'theme';
-@import 'colors';
+@import 'animations';
 @import 'properties';
 @import 'side_menu';
 @import 'clock';
@@ -13,30 +13,32 @@
 
 
 
+
+
 html,body{
     margin: 0;
     padding: 0;
     font-family: Poppins_Regular;
     outline: none;
 
-    --primary-color: #2e2e2e;
-    --secondary-color: #ffffff;
-    --feature-color: #4cabbf;
-    --feature-border-color: #2c6d7b;
+    // --primary-color: #2e2e2e;
+    // --secondary-color: #ffffff;
+    // --feature-color: #4cabbf;
+    // --feature-border-color: #2c6d7b;
 
-    --white: #fff;
+    // --white: #fff;
 
-    --side-menu-hover: #ffffff1a;
+    // --side-menu-hover: #ffffff1a;
 
-    //text
-    --primary-font-color: #ffffff;
-    --secondary-font-color: rgba(255, 255, 255, 0.45);
+    // //text
+    // --primary-font-color: #ffffff;
+    // --secondary-font-color: rgba(255, 255, 255, 0.45);
 
-    // --primary-font-color:rgba(255,255,255,0.45);
-    // --primary-font-color:rgba(255,255,255,0.45);
-    // --secondary-font-color:#FFFFFF;
+    // // --primary-font-color:rgba(255,255,255,0.45);
+    // // --primary-font-color:rgba(255,255,255,0.45);
+    // // --secondary-font-color:#FFFFFF;
 
-    --half-white: rgba(255, 255, 255, 0.5);
+    // --half-white: rgba(255, 255, 255, 0.5);
 
 }
 // ::-webkit-scrollbar{
