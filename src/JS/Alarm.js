@@ -278,12 +278,12 @@ function addbox() {
     var time = document.createElement('div');
     time.className = 'alarm-time';
     time.innerHTML = Display_Hour.innerText + ":" + Display_Minute.innerText;
-    Label_Alarm.value = `Alarm (${index})`
     let input = Label_Alarm.value;
     let alarm_label = document.createElement('div');
     alarm_label.className = 'alarm-label';
     alarm_label.innerHTML = input;
     let nob = document.createElement('div');
+
     nob.id = 'nob';
     nob.classList.add('nob');
 
