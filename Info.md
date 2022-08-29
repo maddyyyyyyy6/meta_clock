@@ -17,9 +17,9 @@ TODO List for Clock App
 *15. Added Hamburger Funtioning
 16. Alarm add feature
 17. Stopwatch counting
-18. 
-19
-20
+18. Light Dark Mode
+19. some theme twickes
+20. Title Bar button hover effects
 
 implement for alarm
 

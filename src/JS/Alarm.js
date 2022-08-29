@@ -1,40 +1,87 @@
-const Switch = document.getElementsByClassName('nob');
-const RepeatDays = document.getElementsByClassName('btnday')
-const Alarm_page = document.getElementById('Alarm');
-const Save_Alarm = document.getElementById('save-alarm');
-// Add alarm menu
+// All Declarations
 const Add_Alarm_Btn = document.getElementById('add-alarm');
 const Add_Alarm_Menu = document.getElementById('add-alarm-form');
 
-// this for empty message
-
-const Empty_message = document.getElementById('empty-message')
-
-let isEmpty = true;
+const RepeatDays = document.getElementsByClassName('btnday')
+const Save_Alarm = document.getElementById('save-alarm');
+const Cancel_Alarm = document.getElementById('cancel-alarm');
 let alarms = [];
+let AlarmList = [];
+let Listofdays = [];
+let index = (localStorage.getItem('alarms-count') == "") ? 0 : parseInt(localStorage.getItem('alarms-count'));
+const Label_Alarm = document.getElementById('label-alarm');
+const Tune = document.getElementById('tune');
+const Snooze = document.getElementById('snooze');
 
 
+
+
+// Main Alarm Page
+const Alarm_page = document.getElementById('Alarm');
+
+// Empty message
+const Empty_message = document.getElementById('empty-message')
 function checkEmpty() {
-    if(isEmpty) {
-        // console.log('empty')
-        Empty_message.classList.remove('hidden');
+    let isEmpty = localStorage.getItem('isEmpty');
 
-        
-    }else{
-        Empty_message.classList.add('hidden');
-        // console.log('ALarm saved')
+    if (isEmpty == true) {
+        Empty_message.classList.add('hide-message');
+
+
+    } else {
+        Empty_message.classList.add('hide-message');
     }
 }
 
-checkEmpty();
+//* Code On load
 
 
 
 
-let AlarmList = [];
-let Listofdays = [];
+//* Code for Refresh List
+
+function getFromLocalStorage() {
+    let saved_alarm_list = localStorage.getItem('saved-alarms')
+    if (saved_alarm_list.length !== 0) {
+        localStorage.setItem('isEmpty', 'false')
+        let saved_alarm_json = JSON.parse(saved_alarm_list);
+
+        saved_alarm_json.forEach(alarm => {
+            AlarmList.push(alarm);
+        })
+        checkEmpty();
+
+    }
 
 
+}
+getFromLocalStorage()
+
+
+
+
+
+function refreshAlarmList() {
+    AlarmList.forEach(alarm => {
+        updatelist0fAlarms(alarm.time.hour, alarm.time.min, alarm.label)
+    })
+}
+
+refreshAlarmList()
+
+
+//* Code for Add Alarm Form
+
+
+//* code for setting the default alarm name
+Label_Alarm.value = `Alarm(${index})`
+
+
+Add_Alarm_Btn.addEventListener('click', () => {
+    console.log('menu');
+    closealarmform();
+
+})
 
 for (let i = 0; i < RepeatDays.length; i++) {
     RepeatDays[i].addEventListener('click', () => {
@@ -49,24 +96,13 @@ for (let i = 0; i < RepeatDays.length; i++) {
 }
 
 
-
-for (let i = 0; i < Switch.length; i++) {
-    Switch[i].addEventListener('click', () => {
-        Switch[i].classList.toggle('on');
-    })
-}
-Add_Alarm_Btn.addEventListener('click', () => {
-    console.log('menu');
-    Add_Alarm_Menu.classList.toggle('hide-menu');
-    // while(!Add_Alarm_Menu.classList.contains('hide')) {
-    //     Add_Alarm_Btn.ariaDisabled = 'true';
-    // }
-})
-
-
-// code for taking alarm repetation
+//* code for taking alarm repetation
 
 var weekofdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+function closealarmform() {
+    Add_Alarm_Menu.classList.toggle('hide-menu');
+}
 
 function getDays() {
     var selecteddays = []
@@ -78,76 +114,49 @@ function getDays() {
 
 
 
-class Alarm {
-    constructor(id, label, time, days) {
-        this.id = id
-        this.label = label
-        this.time = time
-        this.days = days
-
-
-    }
-}
-
-
-
-const Label_Alarm = document.getElementById('label-alarm');
-const Tune = document.getElementById('tune');
-const Snooze = document.getElementById('snooze');
-
-
-// Add to AlarmList
-
-
-
-
-
 
 
 Save_Alarm.addEventListener('click', () => {
     addtoList();
     addbox();
     addlistenertodelbtn(index);
-    index++;
+    lasttimesetted();
+    incrementIndex();
+
 })
 
+Cancel_Alarm.addEventListener('click', () => {
+    closealarmform();
 
+})
 
-var count = 0;
 const addtoList = () => {
-
     var input = Label_Alarm.value;
+    addtoAlarmList(input, index);
+    updateLocalStoragelist();
+}
+
+function updateLocalStoragelist() {
+    let listdumb = JSON.stringify(AlarmList);
+    save_alarm_to_localstorage(listdumb);
+}
+
+// add to alarmlist
+
+
+function addtoAlarmList(input, index) {
     AlarmList.push({
-        id: count,
+        id: index,
         label: input,
-        // time: Display_Hour.innerText + ":" + Display_Minute.innerHTML + Display_AMPM.innerText,
-        time:{
-            hour:Display_Hour.innerText,
-            min:Display_Minute.innerText
+        time: {
+            hour: Display_Hour.innerText,
+            min: Display_Minute.innerText
         },
         repeat: getDays(),
         tune: select_tune_btn.innerText,
         snooze: select_snooze_btn.innerText
-
-    })
-    count++;
-    console.log(AlarmList)
+    });
 }
-
-// 
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Add time codes
 
@@ -170,7 +179,6 @@ Increment_Hour.addEventListener('click', () => {
     setTimeout(() => {
         Display_Hour.classList.remove('text-animate-down')
     }, 200);
-    console.log(getAlarmtime())
 })
 
 Decrement_Hour.addEventListener('click', () => {
@@ -219,6 +227,7 @@ Decrement_Minute.addEventListener('click', () => {
 })
 
 
+
 // Change Alarm Time span AM/PM
 
 const AM_PM_up = document.getElementById('ampm-up')
@@ -249,37 +258,19 @@ AM_PM_down.addEventListener('click', () => {
 
 
 
-
-
-
-
-// recover last setted time
-
 Display_Hour.innerText = localStorage.getItem('last-hour')
 Display_Minute.innerText = localStorage.getItem('last-min')
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Add Alarm Box Element
 
-var index = 0;
+
+function save_alarm_to_localstorage(listdumb) {
+    localStorage.setItem('saved-alarms', listdumb);
+}
+
 
 
 
@@ -287,99 +278,194 @@ function addbox() {
     var time = document.createElement('div');
     time.className = 'alarm-time';
     time.innerHTML = Display_Hour.innerText + ":" + Display_Minute.innerText;
-
-    var input = Label_Alarm.value;
-    console.log(input)
-
-    var alarm_label = document.createElement('div');
+    Label_Alarm.value = `Alarm (${index})`
+    let input = Label_Alarm.value;
+    let alarm_label = document.createElement('div');
     alarm_label.className = 'alarm-label';
-    alarm_label.innerHTML = Label_Alarm.value;
-
-    var nob = document.createElement('div');
+    alarm_label.innerHTML = input;
+    let nob = document.createElement('div');
     nob.id = 'nob';
     nob.classList.add('nob');
 
-
-
-
-
-    var switchbtn = document.createElement('div');
+    let switchbtn = document.createElement('div');
     switchbtn.id = 'switch';
     switchbtn.className = 'switch';
     switchbtn.appendChild(nob)
+    onclickforswitch(switchbtn, nob)
 
-
-
-    var alarmcontrols = document.createElement('div');
+    let alarmcontrols = document.createElement('div');
     alarmcontrols.className = 'alarm-controls';
     alarmcontrols.appendChild(alarm_label)
     alarmcontrols.appendChild(switchbtn)
 
+    let sunspan = document.createElement('span'); sunspan.classList.add('deselect');
+    sunspan.innerText = "Sun";
+    isthisdayselected(sunspan, 0);
+
+    let monspan = document.createElement('span'); monspan.classList.add('deselect');
+    monspan.innerText = "M"
+    isthisdayselected(monspan, 1);
+
+    let tuespan = document.createElement('span'); tuespan.classList.add('deselect');
+    tuespan.innerText = "Tu"
+    isthisdayselected(tuespan, 2);
+
+    let wedspan = document.createElement('span'); wedspan.classList.add('deselect');
+    wedspan.innerText = "We"
+    isthisdayselected(wedspan, 3);
+
+    let thuspan = document.createElement('span'); thuspan.classList.add('deselect');
+    thuspan.innerText = "Th"
+    isthisdayselected(thuspan, 4);
+
+    let frispan = document.createElement('span'); frispan.classList.add('deselect');
+    frispan.innerText = "Fri"
+    isthisdayselected(frispan, 5);
+
+    let satspan = document.createElement('span'); satspan.classList.add('deselect');
+    satspan.innerText = "Sa"
+    isthisdayselected(satspan, 6);
+
+    let days = [sunspan, monspan, tuespan, wedspan, thuspan, frispan, satspan]
+
+    let repeatcontrols = document.createElement('div');
+    repeatcontrols.className = 'repeatation';
+
+    days.forEach(day => {
+        repeatcontrols.appendChild(day)
+    })
 
 
-    var sunspan = document.createElement('span');
+    // for the delete butto
+    let trashicon = document.createElement('i')
+    trashicon.classList.add('fas')
+    trashicon.classList.add('fa-trash')
+    let delbtn = document.createElement('button')
+    delbtn.id = index;
+    delbtn.className = 'delete-alarm'
+    delbtn.classList.add('hide-btn')
+
+    // function for deleting
+    delbtn.appendChild(trashicon)
+    let delete_controls = document.createElement('div')
+    delete_controls.classList = 'delete-controls'
+    delete_controls.appendChild(delbtn)
+
+    let components = [time, alarmcontrols, repeatcontrols, delete_controls];
+
+    let box = document.createElement('div')
+    box.className = 'alarm-box';
+
+    components.forEach(element => {
+        box.appendChild(element)
+    })
+
+    Empty_message.classList.add('hide-message');
+
+    Alarm_page.appendChild(box)
+
+    Add_Alarm_Menu.classList.toggle('hide-menu');
+}
+
+
+
+
+
+function incrementIndex() {
+    index++;
+    localStorage.setItem('alarms-count', index);
+}
+
+function lasttimesetted() {
+    localStorage.setItem('last-hour', Display_Hour.innerText);
+    localStorage.setItem('last-min', Display_Minute.innerText);
+}
+
+function isthisdayselected(day, index) {
+    if (Listofdays.indexOf(index) !== -1) {
+        day.classList.remove('deselect');
+
+    }
+}
+
+function updatelist0fAlarms(hour, min, label) {
+    let time = document.createElement('div');
+    time.className = 'alarm-time';
+    time.innerHTML = hour + ":" + min;
+    let alarm_label = document.createElement('div');
+    alarm_label.className = 'alarm-label';
+    alarm_label.innerHTML = label;
+    let nob = document.createElement('div');
+    nob.id = 'nob';
+    nob.classList.add('nob');
+    let switchbtn = document.createElement('div');
+    switchbtn.id = 'switch';
+    switchbtn.className = 'switch';
+    switchbtn.appendChild(nob)
+    onclickforswitch(switchbtn, nob);
+
+    let alarmcontrols = document.createElement('div');
+    alarmcontrols.className = 'alarm-controls';
+    alarmcontrols.appendChild(alarm_label)
+    alarmcontrols.appendChild(switchbtn)
+
+    let sunspan = document.createElement('span');
     sunspan.classList.add('deselect');
     sunspan.innerText = "Sun"
-    console.log(Listofdays.indexOf(0))
-    
-    if(Listofdays.indexOf(0) !== -1) {
+
+    if (Listofdays.indexOf(0) !== -1) {
         sunspan.classList.remove('deselect');
 
     }
-    var monspan = document.createElement('span');
+    let monspan = document.createElement('span');
     // monspan.classList.add('btnday');
     monspan.classList.add('deselect');
     monspan.innerText = "M"
-    if(Listofdays.indexOf(1) !== -1) {
+    if (Listofdays.indexOf(1) !== -1) {
         monspan.classList.remove('deselect');
 
     }
-    var tuespan = document.createElement('span');
+    let tuespan = document.createElement('span');
     // tuespan.classList.add('btnday');
     tuespan.classList.add('deselect');
     tuespan.innerText = "Tu"
-    if(Listofdays.indexOf(2) !== -1) {
+    if (Listofdays.indexOf(2) !== -1) {
         tuespan.classList.remove('deselect');
 
     }
-    var wedspan = document.createElement('span');
+    let wedspan = document.createElement('span');
     // wedspan.classList.add('btnday');
     wedspan.classList.add('deselect');
     wedspan.innerText = "We"
-    if(Listofdays.indexOf(3) !== -1) {
+    if (Listofdays.indexOf(3) !== -1) {
         wedspan.classList.remove('deselect');
 
     }
-    var thuspan = document.createElement('span');
+    let thuspan = document.createElement('span');
     // thuspan.classList.add('btnday');
     thuspan.classList.add('deselect');
     thuspan.innerText = "Th"
-    if(Listofdays.indexOf(4) !== -1) {
+    if (Listofdays.indexOf(4) !== -1) {
         thuspan.classList.remove('deselect');
 
     }
-    var frispan = document.createElement('span');
+    let frispan = document.createElement('span');
     // frispan.classList.add('btnday');
     frispan.classList.add('deselect');
     frispan.innerText = "Fri"
-    if(Listofdays.indexOf(5) !== -1) {
+    if (Listofdays.indexOf(5) !== -1) {
         frispan.classList.remove('deselect');
 
     }
-    var satspan = document.createElement('span');
+    let satspan = document.createElement('span');
     satspan.classList.add('deselect');
     satspan.innerText = "Sa"
-    if(Listofdays.indexOf(6) !== -1) {
+    if (Listofdays.indexOf(6) !== -1) {
         satspan.classList.remove('deselect');
 
     }
 
-
-
-
-
-
-    var repeatcontrols = document.createElement('div');
+    let repeatcontrols = document.createElement('div');
     repeatcontrols.className = 'repeatation';
 
     repeatcontrols.appendChild(sunspan);
@@ -392,13 +478,11 @@ function addbox() {
 
     // for the delete button
 
-    
-
-    var trashicon = document.createElement('i')
+    let trashicon = document.createElement('i')
     trashicon.classList.add('fas')
     trashicon.classList.add('fa-trash')
 
-    var delbtn = document.createElement('button')
+    let delbtn = document.createElement('button')
     delbtn.id = index;
     delbtn.className = 'delete-alarm'
     delbtn.classList.add('hide-btn')
@@ -411,79 +495,55 @@ function addbox() {
     // }) 
 
 
-    var delete_controls = document.createElement('div')
+    let delete_controls = document.createElement('div')
     delete_controls.classList = 'delete-controls'
 
     delete_controls.appendChild(delbtn)
 
-
-
-
-
-    var box = document.createElement('div')
+    let box = document.createElement('div')
     box.className = 'alarm-box';
     box.appendChild(time);
     box.appendChild(alarmcontrols);
     box.appendChild(repeatcontrols);
     box.appendChild(delete_controls)
 
-    // // remove empty text
-    // isEmpty = false;
-    // checkEmpty()
-
-    Empty_message.classList.add('hide-message');
-
-
-
-
-
 
     Alarm_page.appendChild(box)
-
-    Add_Alarm_Menu.classList.toggle('hide-menu');
-    localStorage.setItem('last-hour',Display_Hour.innerText)
-    localStorage.setItem('last-min',Display_Minute.innerText)
-
-    for (let i = 0; i < Switch.length; i++) {
-        Switch[i].addEventListener('click', () => {
-            Switch[i].classList.toggle('on');
-        })
-    }
-    resetDaySelector();
-    Label_Alarm.value = ''
-
-    //  for adding listener
-
-
 
 }
 
 
 
 
+function onclickforswitch(switchbtn, nob) {
+    switchbtn.onclick = () => {
+        nob.classList.toggle('on');
+    };
+}
+
 function addlistenertodelbtn(index) {
-    var indexedbtn = document.getElementById(index);
+    let indexedbtn = document.getElementById(index);
     indexedbtn.addEventListener('click', () => {
         console.log('indexed' + index);
-        var alarms_boxs = document.getElementsByClassName('alarm-box');
+        let alarms_boxs = document.getElementsByClassName('alarm-box');
         console.log(alarms_boxs.length)
 
         console.log(alarms_boxs[index])
         console.log(alarms_boxs[index].style.display = 'none')
-        
-        
+
+
     });
 }
 
 function resetDaySelector() {
     Listofdays = [];
-    for(let i = 0;i<RepeatDays.length;i++) {
+    for (let i = 0; i < RepeatDays.length; i++) {
         RepeatDays[i].classList.add('deselect');
     }
 }
 
-function contains(list,item) {
-    return list.indexOf(item) === -1? false:true; 
+function contains(list, item) {
+    return list.indexOf(item) === -1 ? false : true;
 }
 
 
@@ -500,12 +560,12 @@ function contains(list,item) {
 const pen_btn = document.getElementById('edit-alarm')
 
 
-pen_btn.addEventListener('click',showdelbutton)
+pen_btn.addEventListener('click', showdelbutton)
 
 function showdelbutton() {
-    var trashbtns = document.getElementsByClassName('delete-alarm')
+    let trashbtns = document.getElementsByClassName('delete-alarm')
 
-    for(let i = 0;i< trashbtns.length;i++) {
+    for (let i = 0; i < trashbtns.length; i++) {
 
         trashbtns[i].classList.toggle('hide-btn')
     }
@@ -525,14 +585,14 @@ function showdelbutton() {
 
 function deleteAlarm(id) {
 
-    // var alarmbox = document.getElementById('alarm-box')
+    // let alarmbox = document.getElementById('alarm-box')
     console.log(id)
-    var alarms_boxs = document.getElementsByClassName('alarm-box');
-    if(alarms_boxs.length === 0) {
+    let alarms_boxs = document.getElementsByClassName('alarm-box');
+    if (alarms_boxs.length === 0) {
         console.log(alarms_boxs.length + "if")
         isEmpty = true;
         checkEmpty();
-    }else{
+    } else {
         console.log(alarms_boxs.length + "else")
 
         alarms_boxs[id].remove()
@@ -540,13 +600,7 @@ function deleteAlarm(id) {
         console.log(alarms_boxs.length)
         console.log(alarms_boxs)
     }
-    
 
-    // for(let i = 0;i<alarms_boxs.length;i++) {
-    //     if(alarms_boxs[i] === id) {
-    //         alarms_boxs[i].remove();
-    //     }
-    // }
 }
 
 
@@ -572,14 +626,14 @@ function deleteAlarm(id) {
 // 7:00
 // match with the alarm control
 // go for it
-var c = document.querySelector('audio')
+let c = document.querySelector('audio')
 
 
 // setInterval(() => {
 //     var gettime = new Date();
 //     var time = gettime.getHours();
 //     var min = gettime.getMinutes();
-    
+
 //     var inputhour = parseInt(Display_Hour.innerText);
 //     var inputmin = parseInt(Display_Minute.innerText);
 
@@ -603,17 +657,17 @@ const tunes_list = document.getElementById('tunes');
 
 const tunes = document.querySelectorAll('.tune');
 
-select_tune_btn.addEventListener('click', () => tunes_list.classList.toggle('active') )
+select_tune_btn.addEventListener('click', () => tunes_list.classList.toggle('active'))
 
 
 tunes.forEach(tune => {
-    tune.addEventListener('click',() => {
+    tune.addEventListener('click', () => {
         var selectedtune = tune.innerText;
         select_tune_btn.innerText = selectedtune;
         tunes_list.classList.toggle('active')
         console.log(select_tune_btn.innerText)
     })
-} )
+})
 
 
 
@@ -626,15 +680,15 @@ const snooze_list = document.getElementById('snoozes');
 
 const times = document.querySelectorAll('.snooze-time');
 
-select_snooze_btn.addEventListener('click', () => snooze_list.classList.toggle('active') )
+select_snooze_btn.addEventListener('click', () => snooze_list.classList.toggle('active'))
 
 
 times.forEach(time => {
-    time.addEventListener('click',() => {
+    time.addEventListener('click', () => {
         select_snooze_btn.innerText = time.innerText
         snooze_list.classList.toggle('active')
     })
-} )
+})
 
 
 
@@ -645,23 +699,23 @@ times.forEach(time => {
 
 // code for checking the alarm list for hour and time
 
-function checkAlarm(index,time) {
-    if(index === 1) {
-        AlarmList.forEach(alarm => {
-            if(time == alarm.time.hour) {
-                return true;
-            }else{
-                return false;
-            }
-        })
-    }else{
-        AlarmList.forEach(alarm => {
-            if(time == alarm.time.min) {
-                return true;
-            }else{
-                return false;
-            }
-        })
-    }
+// function checkAlarm(index, time) {
+//     if (index === 1) {
+//         AlarmList.forEach(alarm => {
+//             if (time == alarm.time.hour) {
+//                 return true;
+//             } else {
+//                 return false;
+//             }
+//         })
+//     } else {
+//         AlarmList.forEach(alarm => {
+//             if (time == alarm.time.min) {
+//                 return true;
+//             } else {
+//                 return false;
+//             }
+//         })
+//     }
 
-}
+// }

@@ -388,6 +388,11 @@
                 border-radius: 5px;
                 color: var(--secondary-color);
                 margin: 0 5px;
+                cursor: pointer;
+
+                &:active{
+                    background-color: rgb(160, 158, 158);
+                }
 
 
             }
@@ -395,6 +400,10 @@
                 color: var(--primary-color);
                 background-color: var(--feature-color);
                 border-color: var(--feature-border-color);
+                &:active{
+                    background-color: #008fac;
+
+                }
             }
         }
         
@@ -418,10 +427,18 @@
         z-index: 1;
         @include flexcenter(row);
         & button{
+            outline: none;
             border: none;
+            padding: 8px 9px;
             background-color: transparent;
+            border-radius: 5px;
+            margin: auto 2px auto 3px;
             & img{
                 width: 25px;
+            }
+
+            &:active{
+                background-color: #505050;
             }
         }
     }

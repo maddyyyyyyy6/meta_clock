@@ -25,31 +25,31 @@ function getToday() {
 
 
 function refreshClock() {
-    var datetime  = new Date();
+    var datetime = new Date();
     var time = datetime.toLocaleTimeString();
-    // var hour = date.getHours();
+    var hour = datetime.getHours();
     // var minutes = date.getMinutes();
     // var seconds = date.getSeconds();
-    var hour = datetime.getHours();
-    var min = datetime.getMinutes();
+    // var hour = datetime.getHours();
+    // var min = datetime.getMinutes();
     // AlarmList.forEach(alarm => {
-        console.log(checkAlarm(1,hour-12))
+    // console.log(checkAlarm(1,hour-12))
     // })
-    if (checkAlarm(1,hour-12) && checkAlarm(2,min)){
-        console.log(AlarmList)
-        console.log("time out")
-    }
-    var lastindex = (hour < 10) ? 7:8;
-    return (lastindex === 7)? "0"+time.substring(0,lastindex):time.substring(0,lastindex);
+    // if (checkAlarm(1,hour-12) && checkAlarm(2,min)){
+    //     console.log(AlarmList)
+    //     console.log("time out")
+    // }
+    let lastindex = (hour < 10) ? 7 : 8;
+    return (lastindex === 7) ? "0" + time.substring(0, lastindex) : time.substring(0, lastindex);
 }
 
 
 function updateTime() {
     Display_Time.innerHTML = refreshClock();
-    
+
 
 }
-setInterval(updateTime,1000);
+setInterval(updateTime, 1000);
 
 
 
@@ -70,22 +70,22 @@ function getAMPM() {
     // console.log(typeof time);
     // console.log(time.substring(time.length ,time.length -2));
     var timelen = time.length;
-    var ampm = time.substring(timelen ,timelen -2);
-    
+    var ampm = time.substring(timelen, timelen - 2);
+
     getSpan(ampm);
 }
 
 function getSpan(AMPM) {
     var sunmoon = document.createElement('i');
     sunmoon.classList.add('far');
-    
-    
-    var logo = (AMPM == 'AM')? 'sun':'moon';
+
+
+    var logo = (AMPM == 'AM') ? 'sun' : 'moon';
     sunmoon.classList.add('fa-' + logo);
-    
-    var span = (AMPM === 'AM')? 'Daytime':'Nightime';
+
+    var span = (AMPM === 'AM') ? 'Daytime' : 'Nightime';
     // console.log(span)
-    
+
     DayNight.innerText = span;
     DayNight.appendChild(sunmoon);
 }
@@ -95,10 +95,10 @@ function getSpan(AMPM) {
 
 // making the date and day
 
-const Days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-const Months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'];
+const Days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const Months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
-var today  = new Date();
+var today = new Date();
 var day = today.getDay();
 DayDisplay.innerHTML = Days[day];
 
