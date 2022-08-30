@@ -1,7 +1,7 @@
 const MenuButton = document.getElementById('hamburger-menu');
 const SideMenu = document.getElementById('side-menu');
 
-MenuButton.addEventListener('click',() => {
+MenuButton.addEventListener('click', () => {
     SideMenu.classList.toggle('show');
 })
 
@@ -12,64 +12,71 @@ const Stopwatch_switch = document.getElementById('Stopwatch-side-menu');
 const Settings_switch = document.getElementById('Settings-menu');
 
 
-const  Clock_View  = document.getElementById('Clock');
-const  Alarm_View  = document.getElementById('Alarm');
-const  Timer_View  = document.getElementById('Timer');
-const  Stopwatch_View  = document.getElementById('Stopwatch');
+const Clock_View = document.getElementById('Clock');
+const Alarm_View = document.getElementById('Alarm');
+const Timer_View = document.getElementById('Timer');
+const Stopwatch_View = document.getElementById('Stopwatch');
 
 
 const Settings_View = document.getElementById('Settings')
 
-Clock_switch.addEventListener('click',() => {
+Clock_switch.addEventListener('click', () => {
     hideOtherTabs();
     Clock_View.classList.remove('hidden');
     MenuButton.click();
     console.log('Clock_switch');
-    
+    $("#title").text("Clock")
+
 })
 
-Alarm_switch.addEventListener('click',() => {
+Alarm_switch.addEventListener('click', () => {
     hideOtherTabs();
     Alarm_View.classList.remove('hidden');
     MenuButton.click();
     console.log('Alarm_switch');
-    
+    $("#title").text("Alarm")
+
+
 })
 
-Timer_switch.addEventListener('click',() => {
+Timer_switch.addEventListener('click', () => {
     hideOtherTabs();
     Timer_View.classList.remove('hidden');
     MenuButton.click();
     console.log('Timer_switch');
-    
+    $("#title").text("Timer")
+
+
 })
 
-Stopwatch_switch.addEventListener('click',() => {
+Stopwatch_switch.addEventListener('click', () => {
     hideOtherTabs();
     Stopwatch_View.classList.remove('hidden');
     MenuButton.click();
     console.log('Stopwatch_switch');
-    
+    $("#title").text("Stopwatch")
+
+
 })
 
-Settings_switch.addEventListener('click',() => {
+Settings_switch.addEventListener('click', () => {
     hideOtherTabs();
     Settings_View.classList.remove('hidden');
     MenuButton.click();
     console.log('Settings_switch');
-    
+    $("#title").text("Settings")
 })
 
 
 
 
 
-function hideOtherTabs(){
+function hideOtherTabs() {
     Clock_View.classList.add('hidden');
     Alarm_View.classList.add('hidden');
     Timer_View.classList.add('hidden');
     Stopwatch_View.classList.add('hidden');
     Settings_View.classList.add('hidden');
-    
+
 
 }

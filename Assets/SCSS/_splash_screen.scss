@@ -65,3 +65,21 @@
 
 }
 
+
+@media (min-width:600px) {
+    .splash-screen{
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        & .Name{
+            font-size: 86px;
+        }
+
+        & .author{
+            font-size: 20px;
+        }
+    }
+}
+

@@ -1,6 +1,38 @@
 .Timer{
     @include screen;
     padding-top: 10px;
+
+    & .addtimer{
+        position: fixed;
+        bottom: 2%;
+        right: 4%;
+        width: 100px;
+        height: 53px;
+        background-color: #3B3B3B;
+        border: 0.5px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        z-index: 1;
+        @include flexcenter(row);
+        & button{
+            outline: none;
+            border: none;
+            padding: 8px 9px;
+            background-color: transparent;
+            border-radius: 5px;
+            margin: auto 2px auto 3px;
+            & img{
+                width: 25px;
+            }
+
+            &:active{
+                background-color: #505050;
+            }
+        }
+    }
+
+    & .timer-list{
+        
+    }
     
     & .timer-box{
         user-select: none;
@@ -74,4 +106,24 @@
             }
         }
     }
+}
+
+
+// media query for timer
+
+@media (min-width:700px) {
+    .Timer{
+
+        & .addtimer{
+            right: 2%;
+        }
+        & .timer-list{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            padding: 0 15px;
+            margin: 20px;
+        }
+    }
+    
 }

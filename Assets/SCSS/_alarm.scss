@@ -413,6 +413,12 @@
         display: none;
     }
     // hide add menu
+
+    // list
+    .alarm-list{
+        display: grid;
+        grid-gap: 10px;
+    }
     
 
     & .addButton{
@@ -454,6 +460,7 @@
         background-color: var(--alarm-add-form-bg);
         display: flex;
         flex-direction: column;
+        transition: 0.5s;
 
         & .alarm-time{
             font-size: 90px;
@@ -515,7 +522,7 @@
             @include flexcenter(row);
             justify-content: flex-start;
             padding-left: 9px;
-            & span{
+            & .card-days{
                 width: 35px;
                 height: 35px;
                 border-radius: 50%;
@@ -573,4 +580,56 @@
 
 .hide-btn{
     display: none;
+}
+
+
+
+
+@media (min-width:600px) {
+    .Alarm{
+
+        & .addButton{
+            right: 2%;
+        }
+
+        & .add-alarm-form{
+            position: absolute;
+            width: 400px;
+            height: 550px;
+            z-index: 1;
+        }
+        & .alarm-list{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-gap: 15px;
+            padding: 0 15px;
+            margin: 20px;
+
+
+
+            & .alarm-box{
+                width: 100%;
+                margin: 0;
+                height: 245px;
+                border:1px solid transparent;
+                cursor: pointer;
+
+                & .alarm-time{
+                    font-size: 75px;
+                }
+                & .alarm-controls{
+                    & .alarm-label{
+                        font-size: 25px;
+                    }
+                }
+
+                &:hover{
+                    transform: translateY(-4px);
+                    background-color: #343434;
+                    border:1px solid grey;
+                }
+            }
+        }
+    }
 }

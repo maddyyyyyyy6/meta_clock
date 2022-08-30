@@ -257,6 +257,27 @@
         }
     }
 
+    // class for digital btn aniamtion
+    // .digital_change{
+    //     animation: change_digital_clock;
+    //     animation-timing-function: linear;
+    //     animation-duration: 0.1s;
+        
+    // }
+
+    // animation for button switching
+    @keyframes change_digital_clock {
+        0%{
+            opacity: 1;
+            transform: translateX(0);
+        };
+        100%{
+            transform: translateX(100px);
+            opacity: 0;
+        };
+        
+    }
+
     .hidebtn{
         display: none;
     }
@@ -270,4 +291,62 @@
 
 .hide {
     display: none;
+}
+
+
+
+
+@media (min-width:700px) {
+    .Clock{
+        & .Digital-Clock{
+            & .DayNight{
+                font-size: 60px;
+            }
+
+            & .Time{
+                font-size: 160px;
+            }
+            & .Today{
+                font-size: 40px;
+            }
+        }
+
+        & .Analog-Clock{
+            & .DayNight{
+                font-size: 60px;
+            }
+
+            & .clock-circle{
+                width: 350px;
+                height: 350px;
+                border-width: 15px;
+                & span{
+                    font-size: 48px;
+                }
+
+                & .clock__hour::before{
+                    width: 0.35rem;
+                    height: 5rem;
+                    transform: translateY(-7px);
+                }
+
+                & .clock__minutes::before{
+                    height: 7rem;
+                    transform: translateY(-19px);
+                }
+                & .clock__seconds::before{
+                    width: 0.125rem;
+                    height: 9rem;
+                    border-radius: 0.75rem;
+                    z-index: 1;
+                    transform: translateY(35px);
+
+                }
+            }
+            & .Today{
+                font-size: 38px;
+                bottom: 17%;
+            }
+        }
+    }
 }

@@ -166,6 +166,17 @@
   width: 300px;
 }
 
+@media (min-width: 600px) {
+  .side-menu {
+    height: 100%;
+    width: 350px;
+    position: static;
+    background: #262626;
+  }
+  .side-menu ul {
+    margin-top: 0px;
+  }
+}
 .Clock {
   background-color: var(--primary-color);
   width: 100%;
@@ -418,6 +429,26 @@
   color: var(--primary-color);
   padding-bottom: 10px;
 }
+@-webkit-keyframes change_digital_clock {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+}
+@keyframes change_digital_clock {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+}
 .Clock .hidebtn {
   display: none;
 }
@@ -432,6 +463,48 @@
   display: none;
 }
 
+@media (min-width: 700px) {
+  .Clock .Digital-Clock .DayNight {
+    font-size: 60px;
+  }
+  .Clock .Digital-Clock .Time {
+    font-size: 160px;
+  }
+  .Clock .Digital-Clock .Today {
+    font-size: 40px;
+  }
+  .Clock .Analog-Clock .DayNight {
+    font-size: 60px;
+  }
+  .Clock .Analog-Clock .clock-circle {
+    width: 350px;
+    height: 350px;
+    border-width: 15px;
+  }
+  .Clock .Analog-Clock .clock-circle span {
+    font-size: 48px;
+  }
+  .Clock .Analog-Clock .clock-circle .clock__hour::before {
+    width: 0.35rem;
+    height: 5rem;
+    transform: translateY(-7px);
+  }
+  .Clock .Analog-Clock .clock-circle .clock__minutes::before {
+    height: 7rem;
+    transform: translateY(-19px);
+  }
+  .Clock .Analog-Clock .clock-circle .clock__seconds::before {
+    width: 0.125rem;
+    height: 9rem;
+    border-radius: 0.75rem;
+    z-index: 1;
+    transform: translateY(35px);
+  }
+  .Clock .Analog-Clock .Today {
+    font-size: 38px;
+    bottom: 17%;
+  }
+}
 .TitleBar {
   display: flex;
   flex-direction: row;
@@ -452,6 +525,13 @@
 }
 .TitleBar .HamburgerMenu i {
   color: var(--primary-font-color);
+}
+.TitleBar .IconandName {
+  margin-right: 15rem;
+}
+.TitleBar .IconandName .title {
+  font-size: 18px;
+  color: #fff;
 }
 .TitleBar .TitleBarButtons {
   display: flex;
@@ -478,6 +558,14 @@
   background-color: #525252;
 }
 
+@media (min-width: 700px) {
+  .TitleBar .HamburgerMenu {
+    display: none;
+  }
+  .TitleBar .IconandName {
+    margin-left: 5rem;
+  }
+}
 .splash-screen {
   background-color: var(--primary-color);
   width: 100%;
@@ -563,6 +651,20 @@
           animation-delay: 6s;
 }
 
+@media (min-width: 600px) {
+  .splash-screen {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .splash-screen .Name {
+    font-size: 86px;
+  }
+  .splash-screen .author {
+    font-size: 20px;
+  }
+}
 .Alarm {
   background-color: var(--primary-color);
   width: 100%;
@@ -975,6 +1077,10 @@
   height: 0;
   display: none;
 }
+.Alarm .alarm-list {
+  display: grid;
+  grid-gap: 10px;
+}
 .Alarm .addButton {
   position: fixed;
   bottom: 2%;
@@ -1017,6 +1123,7 @@
   background-color: var(--alarm-add-form-bg);
   display: flex;
   flex-direction: column;
+  transition: 0.5s;
 }
 .Alarm .alarm-box .alarm-time {
   font-size: 90px;
@@ -1069,7 +1176,7 @@
   justify-content: flex-start;
   padding-left: 9px;
 }
-.Alarm .alarm-box .repeatation span {
+.Alarm .alarm-box .repeatation .card-days {
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -1117,11 +1224,77 @@
   display: none;
 }
 
+@media (min-width: 600px) {
+  .Alarm .addButton {
+    right: 2%;
+  }
+  .Alarm .add-alarm-form {
+    position: absolute;
+    width: 400px;
+    height: 550px;
+    z-index: 1;
+  }
+  .Alarm .alarm-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 15px;
+    padding: 0 15px;
+    margin: 20px;
+  }
+  .Alarm .alarm-list .alarm-box {
+    width: 100%;
+    margin: 0;
+    height: 245px;
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+  .Alarm .alarm-list .alarm-box .alarm-time {
+    font-size: 75px;
+  }
+  .Alarm .alarm-list .alarm-box .alarm-controls .alarm-label {
+    font-size: 25px;
+  }
+  .Alarm .alarm-list .alarm-box:hover {
+    transform: translateY(-4px);
+    background-color: #343434;
+    border: 1px solid grey;
+  }
+}
 .Timer {
   background-color: var(--primary-color);
   width: 100%;
   height: 100%;
   padding-top: 10px;
+}
+.Timer .addtimer {
+  position: fixed;
+  bottom: 2%;
+  right: 4%;
+  width: 100px;
+  height: 53px;
+  background-color: #3B3B3B;
+  border: 0.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.Timer .addtimer button {
+  outline: none;
+  border: none;
+  padding: 8px 9px;
+  background-color: transparent;
+  border-radius: 5px;
+  margin: auto 2px auto 3px;
+}
+.Timer .addtimer button img {
+  width: 25px;
+}
+.Timer .addtimer button:active {
+  background-color: #505050;
 }
 .Timer .timer-box {
   -webkit-user-select: none;
@@ -1201,6 +1374,18 @@
   transform: rotateY(180deg);
 }
 
+@media (min-width: 700px) {
+  .Timer .addtimer {
+    right: 2%;
+  }
+  .Timer .timer-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    padding: 0 15px;
+    margin: 20px;
+  }
+}
 .Stopwatch {
   background-color: var(--primary-color);
   width: 100%;
@@ -1211,12 +1396,12 @@
   justify-content: center;
 }
 .Stopwatch .runner {
-  font-size: 100px;
+  font-size: 170px;
   color: var(--default);
-  width: 80%;
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .Stopwatch .runner .hours {
   width: 100px;
@@ -1236,12 +1421,11 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  padding-left: 20px;
+  width: 67%;
   justify-content: space-around;
 }
 .Stopwatch .indicates span {
-  font-size: 20px;
+  font-size: 40px;
   color: #fff;
 }
 .Stopwatch .stopwatch-controls {
@@ -1262,6 +1446,7 @@
   align-items: center;
   justify-content: center;
   margin: 0 5px;
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.07), -2px -2px 10px rgba(255, 255, 255, 0.07);
 }
 .Stopwatch .stopwatch-controls button img {
   width: 35px;
@@ -1412,8 +1597,10 @@ html, body {
   display: none;
 }
 
-@media (max-width: 600px) {
-  .AppScreen {
+@media (min-width: 600px) {
+  .ClockApp .AppScreen {
+    width: 100%;
     height: 698px;
+    display: flex;
   }
 }

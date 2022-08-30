@@ -107,3 +107,20 @@
 .show {
     width: 300px;
 }
+
+
+
+
+@media (min-width:600px) {
+    .side-menu{
+        height: 100%;
+        width: 350px;
+        position: static;
+        background: #262626;
+
+        & ul{
+            margin-top: 0px;
+        }
+
+    }
+}

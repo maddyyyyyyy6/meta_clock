@@ -28,6 +28,7 @@ function refreshClock() {
     var datetime = new Date();
     var time = datetime.toLocaleTimeString();
     var hour = datetime.getHours();
+    let min = datetime.getMinutes();
     // var minutes = date.getMinutes();
     // var seconds = date.getSeconds();
     // var hour = datetime.getHours();
@@ -39,6 +40,22 @@ function refreshClock() {
     //     console.log(AlarmList)
     //     console.log("time out")
     // }
+
+    // check
+    let alarms = JSON.parse(localStorage.getItem('saved-alarms'))
+    let alarm_time_hour = (hour < 12) ? hour : hour - 12;
+    let alarm_time_min = min;
+    alarms.forEach(alarm => {
+
+        if (alarm.time.hour == alarm_time_hour && alarm.time.min == alarm_time_min) {
+            console.log(alarm.id)
+            console.log(alarm.label)
+            console.log(alarm.time.hour, " ", alarm.time.min)
+            console.log(alarm.repeat)
+            console.log(alarm.tune)
+            console.log(alarm.snooze)
+        }
+    });
     let lastindex = (hour < 10) ? 7 : 8;
     return (lastindex === 7) ? "0" + time.substring(0, lastindex) : time.substring(0, lastindex);
 }

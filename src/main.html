@@ -5,16 +5,18 @@
     <link rel="stylesheet" href="../Assets/CSS/main.css" />
     <link rel="stylesheet" href="../Assets/Icons/fontawesome/css/all.css" />
     <title>Clock</title>
+    <script src="../jquery/google_jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
 
-  <body class="light_theme">
+  <body>
     <div class="ClockApp">
       <div class="TitleBar">
         <div id="hamburger-menu" class="HamburgerMenu">
           <i class="fas fa-bars"></i>
         </div>
         <div class="IconandName">
-          <div id="title" class="title"></div>
+          <div id="title" class="title">Clock</div>
         </div>
         <div class="TitleBarButtons">
           <button id="minimize-button" class="title-bar-button minimize-button">
@@ -195,63 +197,70 @@
               <button id="cancel-alarm">Cancel</button>
             </div>
           </div>
-          <!-- <div id="alarm-box" class="alarm-box">
-                    <div class="alarm-time">07:00</div>
-                    
-                    <div class="alarm-controls">
-                        <div class="alarm-label">
-                            Good Morning
-                        </div>
-                        <div id="switch" class="switch">
-                            <div id="nob" class="nob"></div>
-                        </div>
-                    </div>
-                    <div class="repeatation">
-                        <span class="btnday deselect">Sun</span>
-                        <span class="btnday deselect">M</span>
-                        <span class="btnday deselect">Tu</span>
-                        <span class="btnday deselect">We</span>
-                        <span class="btnday deselect">Th</span>
-                        <span class="btnday deselect">Fri</span>
-                        <span class="btnday deselect">Sa</span>
-                    </div>
-                    <div class="delete-controls">
-                        <button class="delete-alarm">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </div>
 
-                </div> -->
+          <div id="alarm-list" class="alarm-list">
+            <!-- <div id="alarm-box" class="alarm-box">
+              <div class="alarm-time">07:00</div>
+
+              <div class="alarm-controls">
+                <div class="alarm-label">Good Morning</div>
+                <div id="switch" class="switch">
+                  <div id="nob" class="nob"></div>
+                </div>
+              </div>
+              <div class="repeatation">
+                <span class="btnday deselect">Sun</span>
+                <span class="btnday deselect">M</span>
+                <span class="btnday deselect">Tu</span>
+                <span class="btnday deselect">We</span>
+                <span class="btnday deselect">Th</span>
+                <span class="btnday deselect">Fri</span>
+                <span class="btnday deselect">Sa</span>
+              </div>
+              <div class="delete-controls">
+                <button class="delete-alarm">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </div> -->
+          </div>
         </div>
 
         <!-- Code for Timer -->
         <div id="Timer" class="Timer hidden">
-          <div class="empty-message">
+          <div class="empty-message hidden">
             <h1>You don't have any alarms.</h1>
             <p>Select "+" below to add a new alarm</p>
           </div>
-          <div id="timer-box" class="timer-box">
-            <div class="label_controls">
-              <span class="label"> Meditations </span>
-              <!-- <div class="controls">
-                            <button id="maximize"></button>
-                            <button id="minimize"></button>
-                        </div> -->
-            </div>
-            <!-- Circle Pattern -->
-            <div class="circle">
-              <div class="timer-value">00:10:00</div>
-            </div>
+          <div class="addtimer">
+            <button id="edit-timer-btn">
+              <img src="../Assets/Icons/pencil.png" alt="" />
+            </button>
+            <button id="add-timer-btn">
+              <img src="../Assets/Icons/plus.png" alt="" />
+            </button>
+          </div>
+          <!-- div for storing timers -->
+          <div class="timer-list">
+            <div id="timer-box" class="timer-box">
+              <div class="label_controls">
+                <span class="label"> Meditations </span>
+                <!-- <div class="controls"><button id="maximize"></button><button id="minimize"></button></div> -->
+              </div>
+              <!-- Circle Pattern -->
+              <div class="circle">
+                <div class="timer-value">00:10:00</div>
+              </div>
 
-            <!-- timer controls -->
-            <!-- stop
-                        reset -->
-
-            <div class="timer-controls">
-              <button>
-                <img src="../Assets/Icons/play-dark.png" alt="" />
-              </button>
-              <button><i class="fas fa-redo"></i></button>
+              <!-- timer controls -->
+              <!-- stop
+                          reset -->
+              <div class="timer-controls">
+                <button>
+                  <img src="../Assets/Icons/play-dark.png" alt="" />
+                </button>
+                <button><i class="fas fa-redo"></i></button>
+              </div>
             </div>
           </div>
         </div>
@@ -341,6 +350,7 @@
       </div>
       <audio class="beep" src="../Assets/Audio/iphone_pink.mp3"></audio>
     </div>
+
     <script src="./JS/TitleBar.js"></script>
     <script src="./JS/Splash_Screen.js"></script>
     <script src="./JS/Hamburber_Menu.js"></script>

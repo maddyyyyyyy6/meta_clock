@@ -2,6 +2,8 @@
 const Add_Alarm_Btn = document.getElementById('add-alarm');
 const Add_Alarm_Menu = document.getElementById('add-alarm-form');
 
+
+
 const RepeatDays = document.getElementsByClassName('btnday')
 const Save_Alarm = document.getElementById('save-alarm');
 const Cancel_Alarm = document.getElementById('cancel-alarm');
@@ -12,6 +14,8 @@ let index = (localStorage.getItem('alarms-count') == "") ? 0 : parseInt(localSto
 const Label_Alarm = document.getElementById('label-alarm');
 const Tune = document.getElementById('tune');
 const Snooze = document.getElementById('snooze');
+
+const alarm_list = document.querySelector('#alarm-list')
 
 
 
@@ -62,9 +66,11 @@ getFromLocalStorage()
 
 
 function refreshAlarmList() {
-    AlarmList.forEach(alarm => {
-        updatelist0fAlarms(alarm.time.hour, alarm.time.min, alarm.label)
-    })
+    // AlarmList.forEach(alarm => {
+    //     checkEmpty();
+    //     updatelist0fAlarms(alarm.time.hour, alarm.time.min, alarm.label, alarm)
+    // })
+    insertAlarm()
 }
 
 refreshAlarmList()
@@ -112,18 +118,60 @@ function getDays() {
     return selecteddays;
 }
 
+$("#save-alarm").click(() => {
+    console.log('query')
+
+})
+
 
 
 
 
 Save_Alarm.addEventListener('click', () => {
-    addtoList();
-    addbox();
-    addlistenertodelbtn(index);
-    lasttimesetted();
-    incrementIndex();
+    // addtoList();
+    // addbox();
+    // addlistenertodelbtn(index);
+    // lasttimesetted();
+    // incrementIndex();
+    insertAlarm();
 
 })
+
+// add to list using template literals
+
+function insertAlarm() {
+
+    AlarmList.forEach(alarm => {
+        alarm_list.innerHTML += `<div id="alarm-box" class="alarm-box">
+                                <div class="alarm-time">${alarm.time.hour} ${alarm.time.min}</div>
+
+                                <div class="alarm-controls">
+                                    <div class="alarm-label">${alarm.label}</div>
+                                    <div id="switch" class="switch">
+                                        <div id="nob" class="nob ${alarm.state}"></div>
+                                    </div>
+                                </div>
+                                <div class="repeatation">
+                                    <span class="card-days deselect">Sun</span>
+                                    <span class="card-days deselect">M</span>
+                                    <span class="card-days deselect">Tu</span>
+                                    <span class="card-days deselect">We</span>
+                                    <span class="card-days deselect">Th</span>
+                                    <span class="card-days deselect">Fri</span>
+                                    <span class="card-days deselect">Sa</span>
+                                </div>
+                                <div class="delete-controls">
+                                    <button class="delete-alarm" onclick="deleteAlarm(${alarm.id})">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>`
+
+    })
+
+}
+
+
 
 Cancel_Alarm.addEventListener('click', () => {
     closealarmform();
@@ -344,6 +392,7 @@ function addbox() {
     delbtn.id = index;
     delbtn.className = 'delete-alarm'
     delbtn.classList.add('hide-btn')
+    delbtn.onclick = deleteAlarm(this);
 
     // function for deleting
     delbtn.appendChild(trashicon)
@@ -388,7 +437,7 @@ function isthisdayselected(day, index) {
     }
 }
 
-function updatelist0fAlarms(hour, min, label) {
+function updatelist0fAlarms(hour, min, label, index) {
     let time = document.createElement('div');
     time.className = 'alarm-time';
     time.innerHTML = hour + ":" + min;
@@ -486,6 +535,10 @@ function updatelist0fAlarms(hour, min, label) {
     delbtn.id = index;
     delbtn.className = 'delete-alarm'
     delbtn.classList.add('hide-btn')
+    delbtn.onclick = () => {
+        console.log(index)
+        console.log(delbtn.parentElement)
+    }
 
     // function for deleting
 
@@ -508,7 +561,7 @@ function updatelist0fAlarms(hour, min, label) {
     box.appendChild(delete_controls)
 
 
-    Alarm_page.appendChild(box)
+    alarm_list.appendChild(box)
 
 }
 
@@ -561,14 +614,22 @@ const pen_btn = document.getElementById('edit-alarm')
 
 
 pen_btn.addEventListener('click', showdelbutton)
-
+let edit = false;
 function showdelbutton() {
     let trashbtns = document.getElementsByClassName('delete-alarm')
+    if (edit) {
+        for (let i = 0; i < trashbtns.length; i++) {
+            trashbtns[i].classList.remove('hide-btn')
+        }
 
-    for (let i = 0; i < trashbtns.length; i++) {
-
-        trashbtns[i].classList.toggle('hide-btn')
+    } else {
+        for (let i = 0; i < trashbtns.length; i++) {
+            trashbtns[i].classList.add('hide-btn')
+        }
+        edit = true;
     }
+
+
 }
 
 
@@ -583,23 +644,11 @@ function showdelbutton() {
 //     deleteAlarm(0);
 // })
 
-function deleteAlarm(id) {
+function deleteAlarm(index) {
+    console.log(AlarmList)
+    AlarmList.splice(index)
 
-    // let alarmbox = document.getElementById('alarm-box')
-    console.log(id)
-    let alarms_boxs = document.getElementsByClassName('alarm-box');
-    if (alarms_boxs.length === 0) {
-        console.log(alarms_boxs.length + "if")
-        isEmpty = true;
-        checkEmpty();
-    } else {
-        console.log(alarms_boxs.length + "else")
 
-        alarms_boxs[id].remove()
-        // console.log('process')
-        console.log(alarms_boxs.length)
-        console.log(alarms_boxs)
-    }
 
 }
 

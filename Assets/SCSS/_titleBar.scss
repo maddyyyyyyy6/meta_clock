@@ -19,6 +19,14 @@
         color: #fff;
         margin-left: 10px;
     }
+
+    & .IconandName{
+        margin-right: 15rem;
+        & .title{
+            font-size: 18px;
+            color: #fff;
+        }
+    }
     & .TitleBarButtons{
         display: flex;
         align-items: center;
@@ -51,5 +59,20 @@
             
         }
         
+    }
+}
+
+
+
+@media (min-width:700px) {
+    .TitleBar{
+
+        & .HamburgerMenu{
+            display: none;
+        }
+        & .IconandName{
+            margin-left: 5rem;
+            
+        }
     }
 }
