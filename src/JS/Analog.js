@@ -21,6 +21,36 @@ function getToday() {
     return new Date();
 }
 
+
+$("#analog-DayNight").text('Night time')
+
+
+getAMPM()
+
+
+
+function getAMPM() {
+    let hour = getToday().getHours();
+    ampm = (hour < 12) ? "am" : "pm";
+    getSpan(ampm);
+}
+
+function getSpan(AMPM) {
+    var sunmoon = document.createElement('i');
+    sunmoon.classList.add('far');
+
+
+    var logo = (AMPM == 'am') ? 'sun' : 'moon';
+    sunmoon.classList.add('fa-' + logo);
+
+    var span = (AMPM === 'am') ? 'Daytime' : 'Nightime';
+    // console.log(span)
+    $('#analog-DayNight').text(span).append(sunmoon)
+
+
+    // DayNight.appendChild(sunmoon);
+}
+
 Digital_Button.addEventListener('click', () => {
     Digital_Button.classList.add('invisible');
     Digital_Clock.style.display = 'none';

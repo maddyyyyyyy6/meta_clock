@@ -11,6 +11,18 @@
     padding-top: 3px;
     position: relative;
 
+    &::-webkit-scrollbar{
+        width: 7px;
+    }
+
+    &::-webkit-scrollbar-thumb{
+        background-color: #fff;
+        border-radius: 20px;
+        cursor: pointer;
+
+    }
+    
+
 
     // empty alarm content
     & .empty-message{
@@ -585,7 +597,7 @@
 
 
 
-@media (min-width:600px) {
+@media (min-width:800px) {
     .Alarm{
 
         & .addButton{
@@ -593,7 +605,6 @@
         }
 
         & .add-alarm-form{
-            position: absolute;
             width: 400px;
             height: 550px;
             z-index: 1;

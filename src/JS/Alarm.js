@@ -142,7 +142,7 @@ Save_Alarm.addEventListener('click', () => {
 function insertAlarm() {
 
     AlarmList.forEach(alarm => {
-        alarm_list.innerHTML += `<div id="alarm-box" class="alarm-box">
+        alarm_list.innerHTML += `<div  id="${alarm.index}" class="alarm-box">
                                 <div class="alarm-time">${alarm.time.hour} ${alarm.time.min}</div>
 
                                 <div class="alarm-controls">
@@ -161,7 +161,7 @@ function insertAlarm() {
                                     <span class="card-days deselect">Sa</span>
                                 </div>
                                 <div class="delete-controls">
-                                    <button class="delete-alarm" onclick="deleteAlarm(${alarm.id})">
+                                    <button class="delete-alarm hide-btn" onclick="deleteAlarm(${alarm.id})">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </div>
@@ -614,20 +614,29 @@ const pen_btn = document.getElementById('edit-alarm')
 
 
 pen_btn.addEventListener('click', showdelbutton)
-let edit = false;
+let editClicked = false;
 function showdelbutton() {
-    let trashbtns = document.getElementsByClassName('delete-alarm')
-    if (edit) {
-        for (let i = 0; i < trashbtns.length; i++) {
-            trashbtns[i].classList.remove('hide-btn')
-        }
-
+    if (!editClicked) {
+        $(".delete-alarm").addClass("hide-btn")
+        editClicked = true;
     } else {
-        for (let i = 0; i < trashbtns.length; i++) {
-            trashbtns[i].classList.add('hide-btn')
-        }
-        edit = true;
+        $(".delete-alarm").removeClass("hide-btn")
+
+        editClicked = false
     }
+
+    // let trashbtns = document.getElementsByClassName('delete-alarm')
+    // if (edit) {
+    //     for (let i = 0; i < trashbtns.length; i++) {
+    //         trashbtns[i].classList.remove('hide-btn')
+    //     }
+
+    // } else {
+    //     for (let i = 0; i < trashbtns.length; i++) {
+    //         trashbtns[i].classList.add('hide-btn')
+    //     }
+    //     edit = true;
+    // }
 
 
 }

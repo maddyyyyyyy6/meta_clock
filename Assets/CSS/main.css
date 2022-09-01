@@ -166,7 +166,7 @@
   width: 300px;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 800px) {
   .side-menu {
     height: 100%;
     width: 350px;
@@ -678,6 +678,14 @@
   grid-row-gap: 12px;
   padding-top: 3px;
   position: relative;
+}
+.Alarm::-webkit-scrollbar {
+  width: 7px;
+}
+.Alarm::-webkit-scrollbar-thumb {
+  background-color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
 }
 .Alarm .empty-message {
   width: 100%;
@@ -1224,12 +1232,11 @@
   display: none;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 800px) {
   .Alarm .addButton {
     right: 2%;
   }
   .Alarm .add-alarm-form {
-    position: absolute;
     width: 400px;
     height: 550px;
     z-index: 1;
@@ -1374,7 +1381,7 @@
   transform: rotateY(180deg);
 }
 
-@media (min-width: 700px) {
+@media (min-width: 800px) {
   .Timer .addtimer {
     right: 2%;
   }
@@ -1396,7 +1403,7 @@
   justify-content: center;
 }
 .Stopwatch .runner {
-  font-size: 170px;
+  font-size: 100px;
   color: var(--default);
   width: 100%;
   display: flex;

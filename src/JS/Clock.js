@@ -26,12 +26,10 @@ function getToday() {
 
 function refreshClock() {
     var datetime = new Date();
-    var time = datetime.toLocaleTimeString();
+    // var time = datetime.toLocaleTimeString();
     var hour = datetime.getHours();
-    let min = datetime.getMinutes();
-    // var minutes = date.getMinutes();
-    // var seconds = date.getSeconds();
-    // var hour = datetime.getHours();
+    var min = datetime.getMinutes();
+    var sec = datetime.getSeconds();
     // var min = datetime.getMinutes();
     // AlarmList.forEach(alarm => {
     // console.log(checkAlarm(1,hour-12))
@@ -42,22 +40,27 @@ function refreshClock() {
     // }
 
     // check
-    let alarms = JSON.parse(localStorage.getItem('saved-alarms'))
-    let alarm_time_hour = (hour < 12) ? hour : hour - 12;
-    let alarm_time_min = min;
-    alarms.forEach(alarm => {
+    // let alarms = JSON.parse(localStorage.getItem('saved-alarms'))
+    // let alarm_time_hour = (hour < 12) ? hour : hour - 12;
+    // let alarm_time_min = min;
+    // alarms.forEach(alarm => {
 
-        if (alarm.time.hour == alarm_time_hour && alarm.time.min == alarm_time_min) {
-            console.log(alarm.id)
-            console.log(alarm.label)
-            console.log(alarm.time.hour, " ", alarm.time.min)
-            console.log(alarm.repeat)
-            console.log(alarm.tune)
-            console.log(alarm.snooze)
-        }
-    });
-    let lastindex = (hour < 10) ? 7 : 8;
-    return (lastindex === 7) ? "0" + time.substring(0, lastindex) : time.substring(0, lastindex);
+    //     if (alarm.time.hour == alarm_time_hour && alarm.time.min == alarm_time_min) {
+    //         console.log(alarm.id)
+    //         console.log(alarm.label)
+    //         console.log(alarm.time.hour, " ", alarm.time.min)
+    //         console.log(alarm.repeat)
+    //         console.log(alarm.tune)
+    //         console.log(alarm.snooze)
+    //     }
+    // });
+    // let lastindex = (hour < 10) ? 7 : 8;
+
+    hour = (hour < 10) ? (hour == 00) ? 12 : "0" + hour : hour;
+    min = (min < 10) ? "0" + min : min;
+    sec = (sec < 10) ? "0" + sec : sec;
+    // return (lastindex === 7) ? "0" + time.substring(0, lastindex) : time.substring(0, lastindex);
+    return hour + ":" + min + ":" + sec
 }
 
 
@@ -83,11 +86,15 @@ getAMPM()
 
 
 function getAMPM() {
-    var time = getToday().toLocaleTimeString();
+    // var time = getToday().toLocaleTimeString();
     // console.log(typeof time);
     // console.log(time.substring(time.length ,time.length -2));
-    var timelen = time.length;
-    var ampm = time.substring(timelen, timelen - 2);
+    // var timelen = time.length;
+    // var ampm = time.substring(timelen, timelen - 2);
+
+    let hour = getToday().getHours();
+    ampm = (hour < 12) ? "am" : "pm";
+
 
     getSpan(ampm);
 }
@@ -97,10 +104,10 @@ function getSpan(AMPM) {
     sunmoon.classList.add('far');
 
 
-    var logo = (AMPM == 'AM') ? 'sun' : 'moon';
+    var logo = (AMPM == 'am') ? 'sun' : 'moon';
     sunmoon.classList.add('fa-' + logo);
 
-    var span = (AMPM === 'AM') ? 'Daytime' : 'Nightime';
+    var span = (AMPM === 'am') ? 'Daytime' : 'Nightime';
     // console.log(span)
 
     DayNight.innerText = span;
